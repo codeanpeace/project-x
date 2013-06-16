@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Subject:</b>
+  <%= @standard.subject %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%= @standard.grade %>
+</p>
+
+<p>
+  <b>Topic:</b>
+  <%= @standard.topic %>
+</p>
+
+<p>
+  <b>Standard:</b>
+  <%= @standard.standard %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @standard.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_standard_path(@standard) %> |
+<%= link_to 'Back', standards_path %>

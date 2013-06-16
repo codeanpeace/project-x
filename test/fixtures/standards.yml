@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subject: MyString
+  grade: MyString
+  topic: MyString
+  standard: MyString
+  description: MyText
+
+two:
+  subject: MyString
+  grade: MyString
+  topic: MyString
+  standard: MyString
+  description: MyText

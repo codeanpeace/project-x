@@ -1,0 +1,31 @@
+<h1>Listing standards</h1>
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Grade</th>
+    <th>Topic</th>
+    <th>Standard</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @standards.each do |standard| %>
+  <tr>
+    <td><%= standard.subject %></td>
+    <td><%= standard.grade %></td>
+    <td><%= standard.topic %></td>
+    <td><%= standard.standard %></td>
+    <td><%= standard.description %></td>
+    <td><%= link_to 'Show', standard %></td>
+    <td><%= link_to 'Edit', edit_standard_path(standard) %></td>
+    <td><%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Standard', new_standard_path %>
