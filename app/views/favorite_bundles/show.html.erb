@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mentor:</b>
+  <%= @favorite_bundle.mentor %>
+</p>
+
+<p>
+  <b>Bundle:</b>
+  <%= @favorite_bundle.bundle %>
+</p>
+
+
+<%= link_to 'Edit', edit_favorite_bundle_path(@favorite_bundle) %> |
+<%= link_to 'Back', favorite_bundles_path %>

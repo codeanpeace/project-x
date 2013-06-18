@@ -1,4 +1,10 @@
 Projectx::Application.routes.draw do
+  resources :favorite_resources
+
+
+  resources :favorite_bundles
+
+
   resources :bundles
 
 

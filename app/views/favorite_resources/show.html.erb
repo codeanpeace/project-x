@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mentor:</b>
+  <%= @favorite_resource.mentor %>
+</p>
+
+<p>
+  <b>Resource:</b>
+  <%= @favorite_resource.resource %>
+</p>
+
+
+<%= link_to 'Edit', edit_favorite_resource_path(@favorite_resource) %> |
+<%= link_to 'Back', favorite_resources_path %>

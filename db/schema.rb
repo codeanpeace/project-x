@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616015115) do
+ActiveRecord::Schema.define(:version => 20130618001235) do
 
   create_table "bundles", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(:version => 20130616015115) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "favorite_bundles", :force => true do |t|
+    t.integer  "mentor_id"
+    t.integer  "bundle_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "favorite_bundles", ["bundle_id"], :name => "index_favorite_bundles_on_bundle_id"
+  add_index "favorite_bundles", ["mentor_id"], :name => "index_favorite_bundles_on_mentor_id"
+
+  create_table "favorite_resources", :force => true do |t|
+    t.integer  "mentor_id"
+    t.integer  "resource_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "favorite_resources", ["mentor_id"], :name => "index_favorite_resources_on_mentor_id"
+  add_index "favorite_resources", ["resource_id"], :name => "index_favorite_resources_on_resource_id"
 
   create_table "learners", :force => true do |t|
     t.string   "first_name"

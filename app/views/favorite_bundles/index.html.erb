@@ -1,0 +1,25 @@
+<h1>Listing favorite_bundles</h1>
+
+<table>
+  <tr>
+    <th>Mentor</th>
+    <th>Bundle</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @favorite_bundles.each do |favorite_bundle| %>
+  <tr>
+    <td><%= favorite_bundle.mentor %></td>
+    <td><%= favorite_bundle.bundle %></td>
+    <td><%= link_to 'Show', favorite_bundle %></td>
+    <td><%= link_to 'Edit', edit_favorite_bundle_path(favorite_bundle) %></td>
+    <td><%= link_to 'Destroy', favorite_bundle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Favorite bundle', new_favorite_bundle_path %>

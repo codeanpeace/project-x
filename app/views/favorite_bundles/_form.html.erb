@@ -1,0 +1,25 @@
+<%= form_for(@favorite_bundle) do |f| %>
+  <% if @favorite_bundle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@favorite_bundle.errors.count, "error") %> prohibited this favorite_bundle from being saved:</h2>
+
+      <ul>
+      <% @favorite_bundle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mentor %><br />
+    <%= f.text_field :mentor %>
+  </div>
+  <div class="field">
+    <%= f.label :bundle %><br />
+    <%= f.text_field :bundle %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
