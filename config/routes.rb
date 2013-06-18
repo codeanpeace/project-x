@@ -1,4 +1,7 @@
 Projectx::Application.routes.draw do
+  resources :grades
+
+
   resources :favorite_resources
 
 

@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618001235) do
+ActiveRecord::Schema.define(:version => 20130618185158) do
 
   create_table "bundles", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "bundles_resources", :force => true do |t|
+    t.integer "bundle_id"
+    t.integer "resource_id"
+  end
+
+  create_table "bundles_standards", :force => true do |t|
+    t.integer "bundle_id"
+    t.integer "standard_id"
   end
 
   create_table "favorite_bundles", :force => true do |t|
@@ -40,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20130618001235) do
   add_index "favorite_resources", ["mentor_id"], :name => "index_favorite_resources_on_mentor_id"
   add_index "favorite_resources", ["resource_id"], :name => "index_favorite_resources_on_resource_id"
 
+  create_table "grades", :force => true do |t|
+    t.string   "grade"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "grades_standards", :force => true do |t|
+    t.integer "grade_id"
+    t.integer "standard_id"
+  end
+
   create_table "learners", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -61,9 +82,13 @@ ActiveRecord::Schema.define(:version => 20130618001235) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "resources_standards", :force => true do |t|
+    t.integer "resource_id"
+    t.integer "standard_id"
+  end
+
   create_table "standards", :force => true do |t|
     t.string   "subject"
-    t.string   "grade"
     t.string   "topic"
     t.string   "standard"
     t.text     "description"
