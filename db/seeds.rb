@@ -84,7 +84,7 @@ math_standards.each_with_index do |standard, index|
     when "G"
       "Geometry"
     when "NF"
-      "Number & Operations—Fractions"
+      "Number & Operations-Fractions"
     when "RP"
       "Ratios & Proportional Relationships"
     when "NS"
