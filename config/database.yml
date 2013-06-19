@@ -18,7 +18,7 @@ development:
   database: projectx_development
   host: localhost
   pool: 5
-  username: zarapeisker
+  username: harrisontan
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -45,7 +45,7 @@ test:
   database: projectx_test
   host: localhost
   pool: 5
-  username: zarapeisker
+  username: harrisontan
   password:
 
 production:
@@ -54,5 +54,5 @@ production:
   database: projectx_production
   host: localhost
   pool: 5
-  username: zarapeisker
+  username: harrisontan
   password:
