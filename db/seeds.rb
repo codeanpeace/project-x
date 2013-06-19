@@ -8,17 +8,12 @@ require 'open-uri'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-english_standards_file = Nokogiri::XML(File.open("la.xml"))
+english_standards_file = Nokogiri::XML(File.open("db/la.xml"))
 english_standards = english_standards_file.xpath("//LearningStandardItem")
 
-english_standards.each do |standard|
-  @new_standard = Standard.new
-  @new_standard.update_attribute(:standard => standard.xpath("//StatementCode")[0].children.text)
-  @new_standard.update_attribute(:subject => "English")
-  @new_standard.update_attribute(:description => standard.xpath("//Statement")[0].children.text)
+english_standards.each_with_index do |standard, index|
 
-  @id_code = standard.xpath("//StatementCode")[0].children.text.split(".")[2]
-  @topic = case @id_code
+  @topic = case standard.xpath("//StatementCode")[index].children.text.split(".")[2]
     when "CCRA"
       "College and Career Readiness Anchor"
     when "RL"
@@ -40,16 +35,22 @@ english_standards.each do |standard|
     else
       puts "No Match!"
   end
-  @new_standard.update_attribute(:topic => @topic)
 
-  grades = standard.xpath("//GradeLevels")[0].children.to_a
+  new_standard_params = {
+    :standard => standard.xpath("//StatementCode")[index].children.text,
+    :subject => "English",
+    :description => standard.xpath("//Statement")[index].children.text,
+    :topic => @topic
+  }
+
+  puts new_standard_params
+
+  @new_standard = Standard.create(new_standard_params)
+
+  grades = standard.xpath("//GradeLevels")[index].children.to_a
   grades = grades.select{|x| grades.index(x) % 2 != 0}.map{|x| x.children.text}
   grades.each do |grade|
-    @new_standard.grades << Grade.create_or_find_by_name(grade)
+    @new_standard.grades << Grade.find_or_create_by_grade(grade)
   end
 end
-
-
-
-
 
