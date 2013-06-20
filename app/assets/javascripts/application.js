@@ -11,5 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require foundation
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
