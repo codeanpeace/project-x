@@ -1,26 +1,32 @@
 Projectx::Application.routes.draw do
-  resources :grades
+  root :to => 'standards#index'
+  get "/standards/:subject" => 'standard#grade'
+  get "/standards/:subject/:grade" => 'standard#topic'
+  get "/standards/:subject/:grade/:topic" => 'standard#standard'
+  get "/standards/:subject/:grade/:topic/:standard" => 'standard#resource'
+ #resources :grades
 
 
-  resources :favorite_resources
+  #resources :favorite_resources
 
 
-  resources :favorite_bundles
+  #resources :favorite_bundles
 
 
-  resources :bundles
+  #resources :bundles
 
 
-  resources :resources
+  #resources :resources
 
 
   resources :standards
 
 
-  resources :mentors
+
+  #resources :mentors
 
 
-  resources :learners
+  #resources :learners
 
 
   # The priority is based upon order of creation:
@@ -72,7 +78,6 @@ Projectx::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => '#index'
 
   # See how all your routes lay out with "rake routes"
 

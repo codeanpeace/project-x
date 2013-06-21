@@ -1,31 +1,130 @@
-<h1>Listing standards</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+  </head>
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Grade</th>
-    <th>Topic</th>
-    <th>Standard</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <body>
+    <% @subject_list = [] %>
+    <% @standards.each do |standard| %>
+      <% if ! @subject_list.include?(standard.subject) %>
+        <% @subject_list << standard.subject %>
+      <% end %>
+    <% end %>
 
-<% @standards.each do |standard| %>
-  <tr>
-    <td><%= standard.subject %></td>
-    <td><%= standard.grade %></td>
-    <td><%= standard.topic %></td>
-    <td><%= standard.standard %></td>
-    <td><%= standard.description %></td>
-    <td><%= link_to 'Show', standard %></td>
-    <td><%= link_to 'Edit', edit_standard_path(standard) %></td>
-    <td><%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <select>
+      <% @subject_list.each do |subject| %>
+        <option><%= subject %></option>
+      <% end %>
+    </select>
 
-<br />
+  </body>
+</html>
 
-<%= link_to 'New Standard', new_standard_path %>
+<form action="/standards/:subject" method="get">
+  <fieldset>
+    <legend>Subject</legend>
+    <label>Please Choose a Subject</lable>
+    <select name="subject">
+      <% @subject_list.each do |subject| %>
+        <option><%= subject %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+<!-- <label for="name">Stuent?</label>
+<input id="name" type="checkbox" name="student[name]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+....
+
+<select name="make">
+  <option value="1">Ford - NEW</option>
+  <option value="2">Chevy</option>
+</select>
+
+....
+
+
+
+rails
+
+foo = params[:make]
+# 1
+
+
+
+....
+
+<select name="make">
+  <option value="Ford">Ford</option>
+  <option value="Chevy">Chevy</option>
+</select>
+
+....
+
+
+
+rails
+
+foo = params[:make]
+# "Ford"
+
+
+
+....
+
+<select name="make">
+  <option>Ford</option>
+  <option>Chevy</option>
+</select>
+
+....
+
+
+
+rails
+
+foo = params[:make]
+# "Ford"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ -->

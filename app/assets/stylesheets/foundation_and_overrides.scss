@@ -68,7 +68,7 @@ $default-float: left;
 // $include-html-type-classes: $include-html-classes;
 // $include-html-grid-classes: $include-html-classes;
 // $include-html-visibility-classes: $include-html-classes;
-$include-html-button-classes: $include-html-classes;
+// $include-html-button-classes: $include-html-classes;
 // $include-html-form-classes: $include-html-classes;
 // $include-html-custom-form-classes: $include-html-classes;
 // $include-html-media-classes: $include-html-classes;
@@ -314,45 +314,44 @@ $include-html-button-classes: $include-html-classes;
 // $glowing-effect-fade-time: 0.45s;
 // $glowing-effect-color: $input-focus-border-color;
 
-//
-Button Variables
+//Button Variables
 
 
-Padding for buttons.
+//Padding for buttons.
 
-$button-tny: emCalc(7px);
-$button-sml: emCalc(9px);
-$button-med: emCalc(12px);
-$button-lrg: emCalc(16px);
+// $button-tny: emCalc(7px);
+//$button-sml: emCalc(9px);
+//$button-med: emCalc(12px);
+//$button-lrg: emCalc(16px);
 
-Display property.
+//Display property.
 
-$button-display: inline-block;
-$button-margin-bottom: emCalc(20px);
+//$button-display: inline-block;
+// $button-margin-bottom: emCalc(20px);
 
-Button text styles.
+//Button text styles.
 
-$button-font-family: inherit;
-$button-font-color: #fff;
-$button-font-color-alt: #333;
-$button-font-med: emCalc(16px);
-$button-font-tny: emCalc(11px);
-$button-font-sml: emCalc(13px);
-$button-font-lrg: emCalc(20px);
-$button-font-weight: bold;
-$button-font-align: center;
+// $button-font-family: inherit;
+// $button-font-color: #fff;
+// $button-font-color-alt: #333;
+// $button-font-med: emCalc(16px);
+// $button-font-tny: emCalc(11px);
+// $button-font-sml: emCalc(13px);
+// $button-font-lrg: emCalc(20px);
+// $button-font-weight: bold;
+// $button-font-align: center;
 
-Various hover effects.
+//Various hover effects.
 
-$button-function-factor: 10%;
+// $button-function-factor: 10%;
 
-Button border styles.
+//Button border styles.
 
-$button-border-width: 1px;
-$button-border-style: solid;
-$button-border-color: darken($primary-color, $button-function-factor);
+// $button-border-width: 1px;
+// $button-border-style: solid;
+// $button-border-color: darken($primary-color, $button-function-factor);
 
-Radius used throughout the core.
+//Radius used throughout the core.
 
 // $button-radius: $global-radius;
 

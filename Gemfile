@@ -24,10 +24,15 @@ end
 group :development do
   gem 'better_errors'
   gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 gem 'jquery-rails'
 gem 'nokogiri'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
