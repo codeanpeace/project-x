@@ -37,7 +37,7 @@ require 'open-uri'
 #   end
 
 #   new_standard_params = {
-#     :standard => standard.xpath("//StatementCode")[index].children.text,
+#     :standard => standard.xpath("//StatementCode")[index].children.text[18..-1],
 #     :subject => "English",
 #     :description => standard.xpath("//Statement")[index].children.text,
 #     :topic => @topic
@@ -255,6 +255,8 @@ khan_standards.each_with_index do |standard, index|
   puts "\n"
 
   @new_standard = Standard.create(new_standard_params)
+
+  @new_standard.grades << Grade.find_or_create_by_grade(@new_standard.standard.split('.')[0])
 
   standard.css('a').each_with_index do |resource, i|
     new_resource_params = {
