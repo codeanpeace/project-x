@@ -5,6 +5,7 @@
   </head>
 
   <body>
+
     <% @subject_list = [] %>
     <% @standards.each do |standard| %>
       <% if ! @subject_list.include?(standard.subject) %>
@@ -12,27 +13,23 @@
       <% end %>
     <% end %>
 
-    <select>
-      <% @subject_list.each do |subject| %>
-        <option><%= subject %></option>
-      <% end %>
-    </select>
+    <form action="/standards/:subject" method="get">
+      <fieldset>
+        <legend>Subject</legend>
+        <label>Please Choose a Subject</lable>
+        <select name=":subject">
+          <% @subject_list.each do |subject| %>
+            <option><%= subject %></option>
+          <% end %>
+        </select>
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
 
   </body>
 </html>
 
-<form action="/standards/:subject" method="get">
-  <fieldset>
-    <legend>Subject</legend>
-    <label>Please Choose a Subject</lable>
-    <select name="subject">
-      <% @subject_list.each do |subject| %>
-        <option><%= subject %></option>
-      <% end %>
-    </select>
-    <input type="submit" value="Submit">
-  </fieldset>
-</form>
+
 
 
 <!-- <label for="name">Stuent?</label>
