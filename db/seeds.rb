@@ -8,160 +8,160 @@ require 'open-uri'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-english_standards_file = Nokogiri::XML(File.open("db/la.xml"))
-english_standards = english_standards_file.xpath("//LearningStandardItem")
+# english_standards_file = Nokogiri::XML(File.open("db/la.xml"))
+# english_standards = english_standards_file.xpath("//LearningStandardItem")
 
-english_standards.each_with_index do |standard, index|
+# english_standards.each_with_index do |standard, index|
 
-  @topic = case standard.xpath("//StatementCode")[index].children.text.split(".")[2]
-    when "CCRA"
-      "College and Career Readiness Anchor"
-    when "RL"
-      "Reading: Literature"
-    when "RI"
-      "Reading: Foundational Skills"
-    when "W"
-      "Writing"
-    when "SL"
-      "Speaking & Listening"
-    when "L"
-      "Language"
-    when "RH"
-      "History/Social Studies"
-    when "RST"
-      "Science & Technical Subjects"
-    when "WHST"
-      "Writing"
-    else
-      puts "No Match!"
-  end
+#   @topic = case standard.xpath("//StatementCode")[index].children.text.split(".")[2]
+#     when "CCRA"
+#       "College and Career Readiness Anchor"
+#     when "RL"
+#       "Reading: Literature"
+#     when "RI"
+#       "Reading: Foundational Skills"
+#     when "W"
+#       "Writing"
+#     when "SL"
+#       "Speaking & Listening"
+#     when "L"
+#       "Language"
+#     when "RH"
+#       "History/Social Studies"
+#     when "RST"
+#       "Science & Technical Subjects"
+#     when "WHST"
+#       "Writing"
+#     else
+#       puts "No Match!"
+#   end
 
-  new_standard_params = {
-    :standard => standard.xpath("//StatementCode")[index].children.text,
-    :subject => "English",
-    :description => standard.xpath("//Statement")[index].children.text,
-    :topic => @topic
-  }
+#   new_standard_params = {
+#     :standard => standard.xpath("//StatementCode")[index].children.text,
+#     :subject => "English",
+#     :description => standard.xpath("//Statement")[index].children.text,
+#     :topic => @topic
+#   }
 
-  puts new_standard_params
+#   puts new_standard_params
 
-  @new_standard = Standard.create(new_standard_params)
+#   @new_standard = Standard.create(new_standard_params)
 
-  grades = standard.xpath("//GradeLevels")[index].children.to_a
-  grades = grades.select{|x| grades.index(x) % 2 != 0}.map{|x| x.children.text}
-  grades.each do |grade|
-    @new_standard.grades << Grade.find_or_create_by_grade(grade)
-  end
-end
-
-
+#   grades = standard.xpath("//GradeLevels")[index].children.to_a
+#   grades = grades.select{|x| grades.index(x) % 2 != 0}.map{|x| x.children.text}
+#   grades.each do |grade|
+#     @new_standard.grades << Grade.find_or_create_by_grade(grade)
+#   end
+# end
 
 
 
-math_standards_file = Nokogiri::XML(File.open("db/math.xml"))
-math_standards = math_standards_file.xpath("//LearningStandardItem")
 
-math_standards.each_with_index do |standard, index|
 
-  standard_array = standard.xpath("//StatementCode")[index].children.text.split(".")
-  if standard_array[3] == "K"
-    @topic_id = standard_array[4]
-  elsif standard_array[3].to_i != 0
-    @topic_id = standard_array[4]
-  else
-    @topic_id = standard_array[3]
-  end
+# math_standards_file = Nokogiri::XML(File.open("db/math.xml"))
+# math_standards = math_standards_file.xpath("//LearningStandardItem")
 
-  @topic = case @topic_id
-    when "CC"
-      "Counting & Cardinality"
-    when "OA"
-      "Operations & Algebraic Thinking"
-    when "NBT"
-      "Number & Operations in Base Ten"
-    when "MD"
-      "Measurement & Data"
-    when "G"
-      "Geometry"
-    when "NF"
-      "Number & Operations-Fractions"
-    when "RP"
-      "Ratios & Proportional Relationships"
-    when "NS"
-      "The Number System"
-    when "EE"
-      "Expressions & Equations"
-    when "SP"
-      "Statistics & Probability"
-    when "F"
-      "Functions"
-    when "N-RN"
-      "The Real Number System"
-    when "N-Q"
-      "Quantities"
-    when "N-CN"
-      "The Complex Number System"
-    when "N-VM"
-      "Vector & Matrix Quantities"
-    when "A-SSE"
-      "Seeing Structure in Expressions"
-    when "A-APR"
-      "Arithmetic with Polynomials & Rational Expressions"
-    when "A-CED"
-      "Creating Equations"
-    when "A-REI"
-      "Reasoning with Equations & Inequalities"
-    when "F-IF"
-      "Interpreting Functions"
-    when "F-BF"
-      "Building Functions"
-    when "F-LE"
-      "Linear, Quadratic, & Exponential Models"
-    when "F-TF"
-      "Trigonometric Functions"
-    when "G-CO"
-      "Congruence"
-    when "G-SRT"
-      "Similarity, Right Triangles, & Trigonometry"
-    when "F-C"
-      "Circles"
-    when "F-GPE"
-      "Expressing Geometric Properties with Equations"
-    when "F-GMD"
-      "Geometric Measurement & Dimension"
-    when "F-MG"
-      "Modeling with Geometry"
-    when "S-ID"
-      "Interpreting Categorical & Quantitative Data"
-    when "S-IC"
-      "Making Inferences & Justifying Conclusions"
-    when "S-CP"
-      "Conditional Probability & the Rules of Probability"
-    when "S-MD"
-      "Using Probability to Make Decisions"
-    else
-      puts "No Match!"
-  end
+# math_standards.each_with_index do |standard, index|
 
-  new_standard_params = {
-    :standard => standard.xpath("//StatementCode")[index].children.text,
-    :subject => "Math",
-    :description => standard.xpath("//Statement")[index].children.text,
-    :topic => @topic
-  }
+#   standard_array = standard.xpath("//StatementCode")[index].children.text.split(".")
+#   if standard_array[3] == "K"
+#     @topic_id = standard_array[4]
+#   elsif standard_array[3].to_i != 0
+#     @topic_id = standard_array[4]
+#   else
+#     @topic_id = standard_array[3]
+#   end
 
-  puts new_standard_params
+#   @topic = case @topic_id
+#     when "CC"
+#       "Counting & Cardinality"
+#     when "OA"
+#       "Operations & Algebraic Thinking"
+#     when "NBT"
+#       "Number & Operations in Base Ten"
+#     when "MD"
+#       "Measurement & Data"
+#     when "G"
+#       "Geometry"
+#     when "NF"
+#       "Number & Operations-Fractions"
+#     when "RP"
+#       "Ratios & Proportional Relationships"
+#     when "NS"
+#       "The Number System"
+#     when "EE"
+#       "Expressions & Equations"
+#     when "SP"
+#       "Statistics & Probability"
+#     when "F"
+#       "Functions"
+#     when "N-RN"
+#       "The Real Number System"
+#     when "N-Q"
+#       "Quantities"
+#     when "N-CN"
+#       "The Complex Number System"
+#     when "N-VM"
+#       "Vector & Matrix Quantities"
+#     when "A-SSE"
+#       "Seeing Structure in Expressions"
+#     when "A-APR"
+#       "Arithmetic with Polynomials & Rational Expressions"
+#     when "A-CED"
+#       "Creating Equations"
+#     when "A-REI"
+#       "Reasoning with Equations & Inequalities"
+#     when "F-IF"
+#       "Interpreting Functions"
+#     when "F-BF"
+#       "Building Functions"
+#     when "F-LE"
+#       "Linear, Quadratic, & Exponential Models"
+#     when "F-TF"
+#       "Trigonometric Functions"
+#     when "G-CO"
+#       "Congruence"
+#     when "G-SRT"
+#       "Similarity, Right Triangles, & Trigonometry"
+#     when "F-C"
+#       "Circles"
+#     when "F-GPE"
+#       "Expressing Geometric Properties with Equations"
+#     when "F-GMD"
+#       "Geometric Measurement & Dimension"
+#     when "F-MG"
+#       "Modeling with Geometry"
+#     when "S-ID"
+#       "Interpreting Categorical & Quantitative Data"
+#     when "S-IC"
+#       "Making Inferences & Justifying Conclusions"
+#     when "S-CP"
+#       "Conditional Probability & the Rules of Probability"
+#     when "S-MD"
+#       "Using Probability to Make Decisions"
+#     else
+#       puts "No Match!"
+#   end
 
-  @new_standard = Standard.create(new_standard_params)
+#   new_standard_params = {
+#     :standard => standard.xpath("//StatementCode")[index].children.text,
+#     :subject => "Math",
+#     :description => standard.xpath("//Statement")[index].children.text,
+#     :topic => @topic
+#   }
 
-  grades = standard.xpath("//GradeLevels")[index].children.to_a
-  grades = grades.select{|x| grades.index(x) % 2 != 0}.map{|x| x.children.text}
-  grades.each do |grade|
-    @new_standard.grades << Grade.find_or_create_by_grade(grade)
-  end
-end
+#   puts new_standard_params
 
-learnist_resources = Nokogiri::HTML(File.open("db/learnist.html"))
+#   @new_standard = Standard.create(new_standard_params)
+
+#   grades = standard.xpath("//GradeLevels")[index].children.to_a
+#   grades = grades.select{|x| grades.index(x) % 2 != 0}.map{|x| x.children.text}
+#   grades.each do |grade|
+#     @new_standard.grades << Grade.find_or_create_by_grade(grade)
+#   end
+# end
+
+# learnist_resources = Nokogiri::HTML(File.open("db/learnist.html"))
 
 
 khan_resources = Nokogiri::HTML(File.open("db/khan.html"))
