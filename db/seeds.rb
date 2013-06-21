@@ -164,8 +164,8 @@ require 'open-uri'
 # learnist_resources = Nokogiri::HTML(File.open("db/learnist.html"))
 
 
-khan_resources = Nokogiri::HTML(File.open("db/khan.html"))
-khan_standards = khan_resources.css("tr.domain-standards")
+khan = Nokogiri::HTML(File.open("db/khan.html"))
+khan_standards = khan.css("tr.domain-standards")
 
 khan_standards.each_with_index do |standard, index|
 
@@ -260,7 +260,8 @@ khan_standards.each_with_index do |standard, index|
     new_resource_params = {
       :name => resource.children[0].text,
       :type => "arc",
-      :url => resource.attributes["href"].value
+      :url => resource.attributes["href"].value,
+      :source => "Khan Academy"
     }
 
     puts "New resource parameters: "
@@ -296,7 +297,8 @@ puts @xpmath_game_links
   new_resource_params = {
     :name => game.css('td > b')[0].children.text,
     :type => "game",
-    :url => link
+    :url => link,
+    :source => "XP Math"
   }
 
   puts "New resource parameters: "
