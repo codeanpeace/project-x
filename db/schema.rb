@@ -78,6 +78,9 @@ ActiveRecord::Schema.define(:version => 20130618185158) do
 
   create_table "resources", :force => true do |t|
     t.string   "type"
+    t.string   "url"
+    t.string   "name"
+    t.string   "source"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :type
+  attr_accessible :type, :url, :name, :source
 
   has_and_belongs_to_many :bundles
   has_and_belongs_to_many :standards
