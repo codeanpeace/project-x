@@ -37,7 +37,7 @@ english_standards.each_with_index do |standard, index|
   end
 
   new_standard_params = {
-    :standard => standard.xpath("//StatementCode")[index].children.text,
+    :standard => standard.xpath("//StatementCode")[index].children.text[18..-1],
     :subject => "English",
     :description => standard.xpath("//Statement")[index].children.text,
     :topic => @topic
