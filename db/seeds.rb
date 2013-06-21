@@ -256,6 +256,8 @@ khan_standards.each_with_index do |standard, index|
 
   @new_standard = Standard.create(new_standard_params)
 
+  @new_standard.grades << Grade.find_or_create_by_grade(@new_standard.standard.split('.')[0])
+
   standard.css('a').each_with_index do |resource, i|
     new_resource_params = {
       :name => resource.children[0].text,
