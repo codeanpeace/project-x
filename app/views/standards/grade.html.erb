@@ -19,14 +19,16 @@
   <form action="/standards/:subject/:grade" method="get">
     <fieldset>
       <legend>Grade</legend>
-      <label>Please Choose a Grade</lable>
+      <label>Please Choose a Grade</label>
       <select name=":grade">
         <% @standard_grades.each do |grade| %>
           <option><%= grade %></option>
         <% end %>
       </select>
+      <input type="hidden" name=":subject" value=<%= @subject %>>
       <input type="submit" value="Submit">
     </fieldset>
+
   </form>
 
   </body>
