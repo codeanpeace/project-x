@@ -15,16 +15,16 @@
     <% end %>
   <% end %>
 
-  <form action="/index" method="get">
+  <form name="this_form">
     <fieldset>
       <legend>Resources</legend>
       <label>Please Choose a Resource</label>
-      <select name=":resource">
+      <select name=":resource" id=":resource">
         <% @resources.flatten.each do |resource| %>
-          <option><%= resource.name %></a></option>
+          <option value=<%= resource.url %>><%= resource.name %></option>
         <% end %>
       </select>
-      <input type="submit" value="Home">
+      <input type="button" name="Submit" value="Submit" onClick="window.open(:resource.value,'newtab'+:resource.value)">
     </fieldset>
   </form>
 
