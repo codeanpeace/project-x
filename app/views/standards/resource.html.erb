@@ -15,18 +15,14 @@
     <% end %>
   <% end %>
 
-  <form name="this_form">
-    <fieldset>
-      <legend>Resources</legend>
-      <label>Please Choose a Resource</label>
-      <select name=":resource" id=":resource">
-        <% @resources.flatten.each do |resource| %>
-          <option value=<%= resource.url %>><%= resource.name %></option>
-        <% end %>
-      </select>
-      <input type="button" name="Submit" value="Submit" onClick="window.open(:resource.value,'newtab'+:resource.value)">
-    </fieldset>
-  </form>
-
+  <% if @resources.flatten.any? %>
+    <h1>Resources</h1>
+    <% @resources.flatten.each do |resource| %>
+      <p><a href=<%= resource.url %> target='blank'><%= resource.name %></a> | <%= resource.source %></p>
+    <% end %>
+  <% else %>
+    <p>Unfortunately there are no resources for this standard at the moment.</p>
+    <p>Please help us and <a href=#>add a resource</a>!</p>
+  <% end %>
   </body>
 </html>
