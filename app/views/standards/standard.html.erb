@@ -24,7 +24,7 @@
           <option><%= standards_standards %></option>
         <% end %>
       </select>
-      <input type="hidden" name=":topic" value=<%= @topic %>>
+      <input type="hidden" name=":topic" value=<%= @topic.split(" ").join("+") %>>
       <input type="hidden" name=":subject" value=<%= @subject %>>
       <input type="hidden" name=":grade" value=<%= @grade[0].grade %>>
       <input type="submit" value="Submit">
