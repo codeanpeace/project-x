@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20130618185158) do
   end
 
   create_table "resources", :force => true do |t|
-    t.string   "type"
+    t.string   "kind"
     t.string   "url"
     t.string   "name"
     t.string   "source"

@@ -261,7 +261,7 @@ khan_standards.each_with_index do |standard, index|
   standard.css('a').each_with_index do |resource, i|
     new_resource_params = {
       :name => resource.children[0].text,
-      :type => "arc",
+      :kind => "arc",
       :url => resource.attributes["href"].value,
       :source => "Khan Academy"
     }
@@ -298,7 +298,7 @@ puts @xpmath_game_links
 
   new_resource_params = {
     :name => game.css('td > b')[0].children.text,
-    :type => "game",
+    :kind => "game",
     :url => link,
     :source => "XP Math"
   }
