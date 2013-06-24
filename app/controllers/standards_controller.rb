@@ -31,12 +31,12 @@ class StandardsController < ApplicationController
     @topic = params[":topic"]
     @topic = @topic.split("+").join(" ")
     @standards = Standard.where(:topic => @topic, :subject => params[":subject"], :standard => params[":standard"])
-    binding.pry
     @grade = Grade.where(:grade => params[":grade"])
   end
 
-  def url
-  end
+  # def url
+  #   @resource = Resource.where(:name => params[":resource"])
+  # end
 #   # GET /standards/1
 #   # GET /standards/1.json
 #   def show

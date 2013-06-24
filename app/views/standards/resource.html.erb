@@ -6,33 +6,25 @@
 
   <body>
   <% @grade_standards = @grade[0].standards %>
-  <% @resources_standards = [] %>
+  <% @resources = [] %>
   <% @grade_standards.each do |grade_standard| %>
     <% @standards.each do |standard| %>
       <% if grade_standard == standard %>
-        <% @resources_standards << standard.resources %>
+        <% @resources << standard.resources %>
       <% end %>
     <% end %>
   <% end %>
 
-<% binding.pry %>
-
-  <% @resources = [] %>
-  <% @resources_standards.each do |resources_standard| %>
-    <% @resources << resources_standard.resources %>
-  <% end %>
-  <% @resources.flatten! %>
-
-  <form action="/standards/:subject/:grade/:topic/:resource" method="get">
+  <form action="/index" method="get">
     <fieldset>
       <legend>Resources</legend>
       <label>Please Choose a Resource</label>
       <select name=":resource">
-        <% @resources.each do |resource| %>
-          <option><%= resource.name %></option>
+        <% @resources.flatten.each do |resource| %>
+          <option><%= resource.name %></a></option>
         <% end %>
       </select>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Home">
     </fieldset>
   </form>
 

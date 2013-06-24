@@ -6,7 +6,8 @@ Projectx::Application.routes.draw do
   get "/standards/:subject/:grade" => 'standards#topic'
   get "/standards/:subject/:grade/:topic" => 'standards#standard'
   get "/standards/:subject/:grade/:topic/:standard" => 'standards#resource'
-  get "/standards/:subject/:grade/:topic/:standard/:resource"  => "standards#url"
+  get "/index" => 'standards#index'
+  # get "/standards/:subject/:grade/:topic/:standard/:resource"  => "standards#url"
  #resources :grades
 
 
