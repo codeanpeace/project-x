@@ -15,18 +15,22 @@
     <% end %>
   <% end %>
 
-  <form action="/index" method="get">
-    <fieldset>
-      <legend>Resources</legend>
-      <label>Please Choose a Resource</label>
-      <select name=":resource">
-        <% @resources.flatten.each do |resource| %>
-          <option><%= resource.name %></a></option>
-        <% end %>
-      </select>
-      <input type="submit" value="Home">
-    </fieldset>
-  </form>
-
+  <% if @resources.any? %>
+    <form action="/index" method="get">
+      <fieldset>
+        <legend>Resources</legend>
+        <label>Please Choose a Resource</label>
+        <select name=":resource">
+          <% @resources.flatten.each do |resource| %>
+            <option><%= resource.name %></a></option>
+          <% end %>
+        </select>
+        <input type="submit" value="Home">
+      </fieldset>
+    </form>
+  <% else %>
+    <p>Unfortunately there are no resources for this standard at the moment.</p>
+    <p>Please help us and <a href=#>add a resource</a>!</p>
+  <% end %>
   </body>
 </html>
