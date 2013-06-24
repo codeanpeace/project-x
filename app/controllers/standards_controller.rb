@@ -11,21 +11,26 @@ class StandardsController < ApplicationController
 
   def grade
     @standards = Standard.where(:subject => params[":subject"])
-
-    # @grade = Grade.where(:standard_id => params[@standard_id])
-    # @standard_id.each
+    @subject = params[":subject"]
+    @grade = params[":grade"]
   end
 
   def topic
-    @standards = Standard.where(:subject => params[":subject"], :grade => params[":grade"])
+    @grade = Grade.where(:grade => params[":grade"])
+    @subject = params[":subject"]
   end
 
   def standard
-    @standards = Standard.where(:subject => params[":subject"], :grade => params[":grade"], :topic => params[":topic"])
+    @standards = Standard.where(:subject => params[":subject"], :topic => params[":topic"])
+    @grade = Grade.where(:grade => params[":grade"])
+    binding.pry
+    @topic = params[":topic"]
+    @subject = params[":subject"]
   end
 
   def resource
-    @standards = Standard.where(:subject => params[":subject"], :grade => params[":grade"], :topic => params[":topic"], :standard => params[":standard"])
+    @standards = Standard.where(:subject => params[":subject"], :topic => params[":topic"], :standard => params[":standard"])
+    @grade = Grade.where(:grade => params[":grade"])
   end
 #   # GET /standards/1
 #   # GET /standards/1.json

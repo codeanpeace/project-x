@@ -1,6 +1,8 @@
 Projectx::Application.routes.draw do
   root :to => 'standards#index'
   get "/standards/:subject" => 'standards#grade'
+  # match "/standards/:grade" => redirect("/grades/:grade")
+  # get "/grades/:subject" => 'grades#grade'
   get "/standards/:subject/:grade" => 'standards#topic'
   get "/standards/:subject/:grade/:topic" => 'standards#standard'
   get "/standards/:subject/:grade/:topic/:standard" => 'standards#resource'
