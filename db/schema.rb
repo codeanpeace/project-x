@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618185158) do
+ActiveRecord::Schema.define(:version => 20130712234530) do
 
   create_table "bundles", :force => true do |t|
     t.string   "title"
@@ -30,25 +30,15 @@ ActiveRecord::Schema.define(:version => 20130618185158) do
     t.integer "standard_id"
   end
 
-  create_table "favorite_bundles", :force => true do |t|
-    t.integer  "mentor_id"
-    t.integer  "bundle_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "favorited_id"
+    t.string   "favorited_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "favorite_bundles", ["bundle_id"], :name => "index_favorite_bundles_on_bundle_id"
-  add_index "favorite_bundles", ["mentor_id"], :name => "index_favorite_bundles_on_mentor_id"
-
-  create_table "favorite_resources", :force => true do |t|
-    t.integer  "mentor_id"
-    t.integer  "resource_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "favorite_resources", ["mentor_id"], :name => "index_favorite_resources_on_mentor_id"
-  add_index "favorite_resources", ["resource_id"], :name => "index_favorite_resources_on_resource_id"
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
 
   create_table "grades", :force => true do |t|
     t.string   "grade"
