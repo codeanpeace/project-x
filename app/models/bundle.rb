@@ -3,8 +3,8 @@ class Bundle < ActiveRecord::Base
 
   has_and_belongs_to_many :resources
   has_and_belongs_to_many :standards
-  belongs_to :mentor
+  belongs_to :user
   has many :favorites, :as => :favorited
-  has_many :fans, :through => :favorites, :source => :mentor
+  has_many :fans, :through => :favorites, :source => :user
 
 end
