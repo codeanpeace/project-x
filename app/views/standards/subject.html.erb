@@ -1,0 +1,18 @@
+<form action="/standards/jane" method="get">
+  <fieldset>
+    <legend>Subject</legend>
+    <label>Please Choose a Subject</label>
+    <select name="subject">
+      <% @subject_list.each do |subject| %>
+        <option><%= subject %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+
+<%#= form_tag standards_subject_path, :method => "get" %>
+<%# select_tag :subject, options_from_collection_for_select(@subject_list, "id", "name") %>
+<%# end %>
