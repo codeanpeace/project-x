@@ -1,0 +1,13 @@
+%h1 Welcome!
+
+/ toggle here
+
+/ search bar here
+
+- @subject_list.each do |subject|
+  = button_to subject, search_grade_path, :remote => true
+
+
+
+
+
