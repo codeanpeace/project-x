@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Resources</title>
-  </head>
-
-  <body>
-  <% @grade_standards = @grade[0].standards %>
-  <% @resources = [] %>
-  <% @grade_standards.each do |grade_standard| %>
-    <% @standards.each do |standard| %>
-      <% if grade_standard == standard %>
-        <% @resources << standard.resources %>
-      <% end %>
-    <% end %>
+<% if @resources.flatten.any? %>
+  <h1>Resources</h1>
+  <% @resource_list.flatten.each do |resource| %>
+    <p><a href=<%= resource.url %> target='blank'><%= resource.name %></a> | <%= resource.source %></p>
   <% end %>
-
-  <% if @resources.flatten.any? %>
-    <h1>Resources</h1>
-    <% @resources.flatten.each do |resource| %>
-      <p><a href=<%= resource.url %> target='blank'><%= resource.name %></a> | <%= resource.source %></p>
-    <% end %>
-  <% else %>
-    <p>Unfortunately there are no resources for this standard at the moment.</p>
-    <p>Please help us and <a href=#>add a resource</a>!</p>
-  <% end %>
-  </body>
-</html>
+<% else %>
+  <p>Unfortunately there are no resources for this standard at the moment.</p>
+  <p>Please help us and <a href=#>add a resource</a>!</p>
+<% end %>

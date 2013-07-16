@@ -1,12 +1,11 @@
 Projectx::Application.routes.draw do
-  root :to => 'standards#index'
-  get "/standards/:subject" => 'standards#grade'
+  root :to => 'standards#subject'
+  get "/standards/:grade" => 'standards#grade'
   # match "/standards/:grade" => redirect("/grades/:grade")
   # get "/grades/:subject" => 'grades#grade'
   get "/standards/:subject/:grade" => 'standards#topic'
   get "/standards/:subject/:grade/:topic" => 'standards#standard'
   get "/standards/:subject/:grade/:topic/:standard" => 'standards#resource'
-  get "/index" => 'standards#index'
   # get "/standards/:subject/:grade/:topic/:standard/:resource"  => "standards#url"
  #resources :grades
 
@@ -23,7 +22,7 @@ Projectx::Application.routes.draw do
   #resources :resources
 
 
-  # resources :standards
+  resources :standards
 
 
 

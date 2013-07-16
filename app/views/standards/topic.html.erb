@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Topic</title>
-  </head>
-
-  <body>
-
-  <% @grade_standards = @grade[0].standards %>
-  <% @topics = [] %>
-  <% @grade_standards.each do |standard| %>
-    <% if standard.subject == @subject && !@topics.include?(standard.topic) && !standard.topic.nil? %>
-        <% @topics << standard.topic %>
-    <% end %>
-  <% end %>
-
-  <form action="/standards/:subject/:grade/:topic" method="get">
+<form action="/standards/:subject/:grade/:topic" method="get">
     <fieldset>
       <legend>Topic</legend>
       <label>Please Choose a Topic</label>
       <select name=":topic">
-        <% @topics.each do |topic| %>
+        <% @topic_list.each do |topic| %>
           <option><%= topic %></option>
         <% end %>
       </select>
@@ -28,6 +12,3 @@
       <input type="submit" value="Submit">
     </fieldset>
   </form>
-
-  </body>
-</html>

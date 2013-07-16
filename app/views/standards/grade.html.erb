@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Grade</title>
-  </head>
-
-  <body>
-
-    <% @standard_grades = [] %>
-    <% @standards.each do |standard| %>
-     <% @grades = standard.grades %>
-      <% @grades.each do |grade| %>
-        <% if ! @standard_grades.include?(grade.grade) %>
-          <% @standard_grades << grade.grade %>
-        <% end %>
+<form action="/standards/:subject/:grade" method="get">
+  <fieldset>
+    <legend>Grade</legend>
+    <label>Please Choose a Grade</label>
+    <select name=":grade">
+      <% @grade_list.each do |grade| %>
+        <option><%= grade %></option>
       <% end %>
-    <% end %>
+    </select>
+    <input type="hidden" name=":subject" value=<%= @subject %>>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
 
-  <form action="/standards/:subject/:grade" method="get">
-    <fieldset>
-      <legend>Grade</legend>
-      <label>Please Choose a Grade</label>
-      <select name=":grade">
-        <% @standard_grades.each do |grade| %>
-          <option><%= grade %></option>
-        <% end %>
-      </select>
-      <input type="hidden" name=":subject" value=<%= @subject %>>
-      <input type="submit" value="Submit">
-    </fieldset>
-
-  </form>
-
-  </body>
-</html>

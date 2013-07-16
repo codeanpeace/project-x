@@ -1,37 +1,32 @@
 class StandardsController < ApplicationController
   # GET /standards
   # GET /standards.json
-  def index
+  def subject
     @standards = Standard.all
-#Standard.where(:subject => params[:subject], :topic => params[:topic], :standard => params[:standard])
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @standards }
+    @subject_list = []
+    @standards.each do |standard|
+      standard.subject_method(@subject_list)
+    end
   end
 
   def grade
-    @standards = Standard.where(:subject => params[":subject"])
-    @subject = params[":subject"]
-    @grade = params[":grade"]
+    @standards_subject = Standard.where(:subject => params["subject"])
+    @grade_list = []
+    @standards_subject.each do |standard_subject|
+      standard_subject.grade_method(@grade_list)
+    end
   end
 
   def topic
-    @grade = Grade.where(:grade => params[":grade"])
-    @subject = params[":subject"]
+    @topic_list
   end
 
   def standard
-    @standards = Standard.where(:subject => params[":subject"], :topic => params[":topic"])
-    @grade = Grade.where(:grade => params[":grade"])
-    @topic = params[":topic"]
-    @subject = params[":subject"]
+    @standard_list
   end
 
   def resource
-    @topic = params[":topic"]
-    @topic = @topic.split("+").join(" ")
-    @standards = Standard.where(:topic => @topic, :subject => params[":subject"], :standard => params[":standard"])
-    @grade = Grade.where(:grade => params[":grade"])
+    @resource_list
   end
 
   # def url

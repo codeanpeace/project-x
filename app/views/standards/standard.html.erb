@@ -1,35 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Standard</title>
-  </head>
-
-  <body>
-  <% @grade_standards = @grade[0].standards %>
-  <% @standards_standards = [] %>
-  <% @grade_standards.each do |grade_standard| %>
-    <% @standards.each do |standard| %>
-      <% if grade_standard == standard %>
-        <% @standards_standards << standard.standard %>
+<form action="/standards/:subject/:grade/:topic/:standard" method="get">
+  <fieldset>
+    <legend>Standard</legend>
+    <label>Please Choose a Standard</label>
+    <select name=":standard">
+      <% @standard_list.each do |standard| %>
+        <option><%= standard %></option>
       <% end %>
-    <% end %>
-  <% end %>
-
-  <form action="/standards/:subject/:grade/:topic/:standard" method="get">
-    <fieldset>
-      <legend>Standard</legend>
-      <label>Please Choose a Standard</label>
-      <select name=":standard">
-        <% @standards_standards.each do |standards_standards| %>
-          <option><%= standards_standards %></option>
-        <% end %>
-      </select>
-      <input type="hidden" name=":topic" value=<%= @topic.split(" ").join("+") %>>
-      <input type="hidden" name=":subject" value=<%= @subject %>>
-      <input type="hidden" name=":grade" value=<%= @grade[0].grade %>>
-      <input type="submit" value="Submit">
-    </fieldset>
-  </form>
-
-  </body>
-</html>
+    </select>
+    <input type="hidden" name=":topic" value=<%= @topic.split(" ").join("+") %>>
+    <input type="hidden" name=":subject" value=<%= @subject %>>
+    <input type="hidden" name=":grade" value=<%= @grade[0].grade %>>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
