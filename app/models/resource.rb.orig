@@ -1,10 +1,14 @@
 class Resource < ActiveRecord::Base
+<<<<<<< HEAD
   attr_accessible :kind, :url, :name, :source
+=======
+  attr_accessible :kind, :url, :name, :source #=> :mentor_id
+>>>>>>> fb78bb17f0ebcc5abea84a0c92291ee45f413e68
 
   has_and_belongs_to_many :bundles
   has_and_belongs_to_many :standards
   belongs_to :user
   has_many :favorites, :as => :favorited
-  has_many :fans, :through => :favorites, :source => :user
+  # has_many :fans, :through => :favorites, :source => :user
 
 end

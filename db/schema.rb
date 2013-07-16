@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130714080953) do
+ActiveRecord::Schema.define(:version => 20130716012805) do
 
   create_table "bundles", :force => true do |t|
     t.string   "title"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(:version => 20130714080953) do
     t.integer "standard_id"
   end
 
+  create_table "learners", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "mentors", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "kind"
     t.string   "url"
@@ -77,9 +87,10 @@ ActiveRecord::Schema.define(:version => 20130714080953) do
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "profile_id"
+    t.string   "profile_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

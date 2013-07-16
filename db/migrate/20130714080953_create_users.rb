@@ -3,8 +3,8 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
-      t.string :type
-
+      t.integer :profile_id
+      t.string :profile_type
       t.timestamps
     end
   end
