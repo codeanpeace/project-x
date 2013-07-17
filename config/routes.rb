@@ -1,7 +1,8 @@
 Projectx::Application.routes.draw do
   root :to => 'search#index'
 
-  post "search/grade_topic"
+  post "search/grade"
+  post "search/topic"
 
 
 
@@ -22,7 +23,7 @@ Projectx::Application.routes.draw do
   #resources :favorite_bundles
 
 
-  #resources :bundles
+  resources :bundles
 
 
   #resources :resources
