@@ -1,9 +1,0 @@
-<% if @resources.flatten.any? %>
-  <h1>Resources</h1>
-  <% @resource_list.flatten.each do |resource| %>
-    <p><a href=<%= resource.url %> target='blank'><%= resource.name %></a> | <%= resource.source %></p>
-  <% end %>
-<% else %>
-  <p>Unfortunately there are no resources for this standard at the moment.</p>
-  <p>Please help us and <a href=#>add a resource</a>!</p>
-<% end %>
