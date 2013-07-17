@@ -4,7 +4,22 @@ Projectx::Application.routes.draw do
   post "search/grade"
   post "search/topic"
 
+  get "password_resets/create"
+  get "password_resets/edit"
+  get "password_resets/update"
 
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "signup" => "users#new", :as => "signup"
+
+  resources :users do
+    member do
+      get :activate
+    end
+  end
+
+  resources :sessions
+  resources :password_resets
 
 
  #  get "/standards/:grade" => 'standards#grade'
