@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
-$("#grade").append('<%= j render :partial => "grade" %>');
+$('#subject').on('click', function() {
+  ('#subject').html()
+  $("#grade").append('<%= j render :partial => "grade" %>');
+};
 
 
 
