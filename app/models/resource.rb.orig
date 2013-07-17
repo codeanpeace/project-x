@@ -1,9 +1,9 @@
 class Resource < ActiveRecord::Base
 <<<<<<< HEAD
-  attr_accessible :kind, :url, :name, :source
-=======
   attr_accessible :kind, :url, :name, :source #=> :mentor_id
->>>>>>> fb78bb17f0ebcc5abea84a0c92291ee45f413e68
+=======
+  attr_accessible :kind, :url, :name, :source
+>>>>>>> 870938d691b6f74ac23b486977e41d050ec13b09
 
   has_and_belongs_to_many :bundles
   has_and_belongs_to_many :standards
