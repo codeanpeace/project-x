@@ -23,9 +23,9 @@ class Standard < ActiveRecord::Base
   end
 
   #To create an array of topics
-  def topic_method
-    if self.subject == @subject && !@topic_list.include?(self.topic) && !self.topic.nil?
-        @topic_list << self.topic
+  def topic_method(topic_list, subject)
+    if self.subject == subject && !topic_list.include?(self.topic) && !self.topic.nil?
+        topic_list << self.topic
     end
   end
 
