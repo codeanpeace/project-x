@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+$('#grade').show().text('<%= @grade_only %>')
 $("#topic").append('<%= j render :partial => "topic" %>');
 
 });
