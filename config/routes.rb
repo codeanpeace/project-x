@@ -1,4 +1,8 @@
 Projectx::Application.routes.draw do
+  get "users/new"
+
+  get "sessions/new"
+
   root :to => 'standards#subject'
   get "/standards/:grade" => 'standards#grade'
   # match "/standards/:grade" => redirect("/grades/:grade")
