@@ -5,14 +5,9 @@ class Standard < ActiveRecord::Base
   has_and_belongs_to_many :bundles
   has_and_belongs_to_many :grades
 
-  # @subject = params["subject"]
-  # @grade = Grade.where(:grade => params["grade"])
-  # @grade_standards = @grade[0].standards
-  # @topic = params["topic"]
-
   # To create an array of subjects
   def subject_method(subject_list)
-    if ! subject_list.include?(self.subject)
+    if !subject_list.include?(self.subject)
       subject_list << self.subject
     end
   end
@@ -21,19 +16,18 @@ class Standard < ActiveRecord::Base
   def grade_method(grade_list)
    @grades = self.grades
     @grades.each do |grade|
-      if ! grade_list.include?(grade.grade)
+      if !grade_list.include?(grade.grade)
         grade_list << grade.grade
       end
     end
   end
 
   #To create an array of topics
-  # @topic_list = []
-  # @grade_standards.each do |grade_standard|
-  #   if grade_standard.subject == @subject && !@topics.include?(grade_standard.topic) && !grade_standard.topic.nil?
-  #       @topic_list << grade_standard.topic
-  #   end
-  # end
+  def topic_method
+    if self.subject == @subject && !@topic_list.include?(self.topic) && !self.topic.nil?
+        @topic_list << self.topic
+    end
+  end
 
   # #To create an array of standards
   # @standards_subject_topic = Standard.where(:subject => params["subject"], :topic => params["topic"])

@@ -1,4 +1,19 @@
 Projectx::Application.routes.draw do
+<<<<<<< HEAD
+  get "users/new"
+
+  get "sessions/new"
+
+  root :to => 'standards#subject'
+  get "/standards/:grade" => 'standards#grade'
+  # match "/standards/:grade" => redirect("/grades/:grade")
+  # get "/grades/:subject" => 'grades#grade'
+  get "/standards/:subject/:grade" => 'standards#topic'
+  get "/standards/:subject/:grade/:topic" => 'standards#standard'
+  get "/standards/:subject/:grade/:topic/:standard" => 'standards#resource'
+  # get "/standards/:subject/:grade/:topic/:standard/:resource"  => "standards#url"
+ #resources :grades
+=======
   root :to => 'search#index'
 
   post "search/grade_topic"
@@ -14,6 +29,7 @@ Projectx::Application.routes.draw do
  #  get "/standards/:subject/:grade/:topic/:standard" => 'standards#resource'
  #  # get "/standards/:subject/:grade/:topic/:standard/:resource"  => "standards#url"
  # #resources :grades
+>>>>>>> b904b3502c2757eef71f80cc1aefbe48f5c3ad21
 
 
   #resources :favorite_resources

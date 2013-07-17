@@ -32,6 +32,7 @@ end
 
 gem 'jquery-rails'
 gem 'nokogiri'
+gem 'haml'
 
 gem 'sorcery'
 gem 'mail'
