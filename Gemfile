@@ -38,7 +38,7 @@ gem 'sorcery'
 gem 'mail'
 
 gem 'foreman'
-gem 'dotenv'
+gem 'dotenv-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
