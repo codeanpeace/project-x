@@ -1,16 +1,5 @@
-<h1>Search#grade</h1>
-<p>Find me in app/views/search/grade.html.erb</p>
-
-<form action="/standards/:subject/:grade" method="get">
-  <fieldset>
-    <legend>Grade</legend>
-    <label>Please Choose a Grade</label>
-    <select name=":grade">
-      <% @grade_list.each do |grade| %>
-        <option><%= grade %></option>
-      <% end %>
-    </select>
-    <input type="hidden" name=":subject" value=<%= @subject %>>
-    <input type="submit" value="Submit">
-  </fieldset>
-</form>
+- @grade_list.each do |grade|
+  = form_tag search_grade_topic_path, :remote => true do
+    = hidden_field_tag :subject, @subject
+    = hidden_field_tag :grade, grade
+    = submit_tag grade

@@ -8,24 +8,19 @@ class SearchController < ApplicationController
     end
   end
 
-  def grade
-    @standards_subject = Standard.where(:subject => params["subject"])
+  def grade_topic
+    @standards_subject = Standard.where(:subject => params[:subject])
+    @subject = params[:subject]
     @grade_list = []
     @standards_subject.each do |standard_subject|
       standard_subject.grade_method(@grade_list)
     end
-  end
-
-  def topic
-    @topic_list
-  end
-
-  def standard
-    @standard_list
-  end
-
-  def resource
-    @resource_list
+    # @grade = Grade.where(:grade => params[:grade])
+    # @grade_standards = @grade[0].standards
+    # @topic_list = []
+    # @grade_standards.each do |grade_standard|
+    #   grade_standard.topic_method(@topic_list)
+    # end
   end
 
 end

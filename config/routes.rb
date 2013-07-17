@@ -1,9 +1,7 @@
 Projectx::Application.routes.draw do
   root :to => 'search#index'
 
-  post "search/grade"
-
-  post "search/topic"
+  post "search/grade_topic"
 
 
 
