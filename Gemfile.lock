@@ -53,11 +53,15 @@ GEM
       debugger-ruby_core_source (~> 1.2.1)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.2)
+    dotenv (0.8.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -70,6 +74,7 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    kgio (2.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -126,6 +131,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+    raindrops (0.11.0)
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -153,6 +159,10 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unicorn (4.6.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     zurb-foundation (4.2.2)
       sass (>= 3.2.0)
 
@@ -160,9 +170,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
+  dotenv
+  foreman
   haml
   jquery-rails
   mail
@@ -176,4 +189,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sorcery
   uglifier (>= 1.0.3)
+  unicorn
   zurb-foundation

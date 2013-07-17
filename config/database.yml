@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: projectx_development
   pool: 5
-  username: harrisontan
+  username: ENV['db_un']
   host: localhost
   password:
 
@@ -44,7 +44,7 @@ test:
   encoding: unicode
   database: projectx_test
   pool: 5
-  username: harrisontan
+  username: ENV['db_un']
   host: localhost
   password:
 
@@ -53,6 +53,6 @@ production:
   encoding: unicode
   database: projectx_production
   pool: 5
-  username: harrisontan
+  username: ENV['db_un']
   host: localhost
   password:
