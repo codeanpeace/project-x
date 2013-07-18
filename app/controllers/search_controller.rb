@@ -3,6 +3,7 @@ class SearchController < ApplicationController
   skip_before_filter :require_login
 
   def index
+    @standards = Standard.all
     @availableTags = []
     @standards.each do |standard|
       @availableTags << standard.standard
