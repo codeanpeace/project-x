@@ -4,6 +4,10 @@ class SearchController < ApplicationController
 
   def index
     @standards = Standard.all
+    @availableTags = []
+    @standards.each do |standard|
+      @availableTags << standard.standard
+    end
     @subject_list = []
     @standards.each do |standard|
       standard.subject_method(@subject_list)
