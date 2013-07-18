@@ -28,6 +28,8 @@ group :development do
   gem 'pry-debugger'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'annotate'
+  gem 'rack-mini-profiler'
 end
 
 gem 'jquery-rails'
