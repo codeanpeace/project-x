@@ -40,9 +40,10 @@ class Standard < ActiveRecord::Base
 
   #To create an array of relevant standards
   def self.standard_list(subject, grade, topic)
-    Standard.where(:subject => subject, :topic => topic).joins(:grades).where(:grades => {:grade => grade}).includes(:resources).each do |standard|
+    @standard_list = Standard.where(:subject => subject, :topic => topic).joins(:grades).where(:grades => {:grade => grade}).includes(:resources)
+    @standard_list.each_with_index do |standard, index|
       if standard.resources.empty?
-        @standard_list.delete(standard)
+        @standard_list.delete_at(index)
       end
     end
   end

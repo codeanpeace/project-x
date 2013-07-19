@@ -1,0 +1,63 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.13'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'pg'
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'annotate'
+  gem 'rack-mini-profiler'
+end
+
+gem 'jquery-rails'
+gem 'nokogiri'
+gem 'haml'
+gem 'sorcery'
+gem 'mail'
+<<<<<<< HEAD
+
+gem 'delayed_job_active_record'
+
+=======
+>>>>>>> 66a1442104cfc1bae137d9bb97b8e16e09729d17
+gem 'foreman'
+gem 'dotenv-rails'
+gem 'jquery-ui-rails'
+
+# To use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
