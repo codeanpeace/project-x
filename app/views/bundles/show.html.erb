@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<h1>
   <%= @bundle.title %>
-</p>
+</h1>
 
-<p>
-  <b>Description:</b>
+<h2>
   <%= @bundle.description %>
-</p>
+</h2>
 
+<h2>
+  <% @bundle.resources.each do |resource| %>
+    <p> <%= resource.name %> </p>
+    <p> Fulfills standards: </p>
+      <%= @bundle.standards.select{ |standard| standard.resources.include? (resource) }.map{ |standard| standard.standard }.join(", ") %>
+  <% end %>
+</h2>
 
-<%= link_to 'Edit', edit_bundle_path(@bundle) %> |
-<%= link_to 'Back', bundles_path %>
+<%= link_to 'Add Resources To Bundle', edit_bundle_url(@bundle) %> |

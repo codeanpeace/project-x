@@ -1,5 +1,5 @@
 - @topic_list.each do |topic|
-  = form_tag bundles_path, :method => "get" do
+  = form_tag new_bundle_url, :method => "post" do
     = hidden_field_tag :subject, @subject
     = hidden_field_tag :grade, @grade_only
     = hidden_field_tag :topic, topic

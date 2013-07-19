@@ -36,6 +36,9 @@ gem 'nokogiri'
 gem 'haml'
 gem 'sorcery'
 gem 'mail'
+
+gem 'delayed_job_active_record'
+
 gem 'foreman'
 gem 'dotenv-rails'
 gem 'jquery-ui-rails'

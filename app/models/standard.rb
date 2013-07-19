@@ -15,7 +15,7 @@ class Standard < ActiveRecord::Base
   #   end
   # end
 
-  #To create an array of grades
+  #To create an array of relevant grades
   def self.grade_list(subject)
     Standard.where(:subject => subject).joins(:grades).select("distinct grades.grade").map {|g| g.grade}.sort.rotate!(-1)
   end
@@ -28,7 +28,7 @@ class Standard < ActiveRecord::Base
   #   end
   # end
 
-  #To create an array of topics
+  #To create an array of relevant topics
   def self.topic_list(subject, grade)
     Standard.where(:subject => subject).joins(:grades).where(:grades => {:grade => grade}).select("distinct topic").map {|t| t.topic}
   end
@@ -38,16 +38,17 @@ class Standard < ActiveRecord::Base
   #   end
   # end
 
+  #To create an array of relevant standards
+  def self.standard_list(subject, grade, topic)
+    Standard.where(:subject => subject, :topic => topic).joins(:grades).where(:grades => {:grade => grade})
+  end
+
+  #To create an array of relevant resources method
+  def resource_list
+    self.resources
+  end
+
   # #To create an array of standards
-  # @standards_subject_topic = Standard.where(:subject => params["subject"], :topic => params["topic"])
-  # @standard_list = []
-  # @grade_standards.each do |grade_standard|
-  #   @standards_subject_topic.each do |standard_subject_topic|
-  #     if grade_standard == standard
-  #       @standard_list << standard.standard
-  #     end
-  #   end
-  # end
 
   # #To create an array of resources
   # @topic_new = @topic.split("+").join(" ")

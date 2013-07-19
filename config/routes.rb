@@ -11,6 +11,7 @@ Projectx::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
   get "signup" => "users#new", :as => "signup"
+  post "update/:id" => "bundles#update", :as => "update_bundle"
 
   resources :users do
     member do
@@ -37,8 +38,12 @@ Projectx::Application.routes.draw do
 
   #resources :favorite_bundles
 
+  post "new_bundle" => "bundles#new", :as => "new_bundle"
+  get "make_bundle/:standards" => "bundles#make_bundle", :as => "make_bundle"
+  post "create_bundle/:standards" => "bundles#create", :as => "create_bundle"
 
-  resources :bundles
+
+  resources :bundles, except: [:new, :create, :update]
 
 
   #resources :resources

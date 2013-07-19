@@ -36,6 +36,8 @@ class SearchController < ApplicationController
 
   def topic
     @topic_list = Standard.topic_list(params[:subject], params[:grade])
+    @grade = params[:grade]
+    @subject = params[:subject]
     # @subject = params[:subject]
     # @grade_only = params[:grade]
     # @grade = Grade.where(:grade => params[:grade])
