@@ -1,6 +1,53 @@
-<h1>Editing bundle</h1>
+<% if current_user && current_user.bundles.empty? || !current_user %>
+  # <h1> You haven't made any bundles yet. <%= link_to  "Create your first bundle!", make_bundle_url(@standard_list.map{ |s| s.id }.join(", ")), :method => "get" %> </h1>
+<% else %>
+  <p> <%= @bundle.title %> </p>
 
-<%= render 'form' %>
+<% end %>
+
+<% if @bundle %>
+<!-- #all standards associated with this bundle upon first search so that when user returns to page to edit bundle, they can add resources based upon these initial associated standards -->
+  <% @bundle.standards.each do |standard| %>
+    <div class = "standard">
+    <%= standard.standard %>
+      <ul class = "standard_resource">
+        <% standard.resources.each do |resource| %>
+          <a href = <%= resource.url %> >
+            <li> <%= resource.name %> </li>
+            <li> <%= resource.source %> </li>
+          </a>
+          <%= form_tag update_bundle_url(@bundle) do %>
+            <%= hidden_field_tag :standard, standard.standard %>
+            <%= hidden_field_tag :resource, resource.id %>
+            <%= submit_tag "Add Resource To Bundle" %>
+          <% end %>
+
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% else %>
+
+<!-- if this is the first time searching, and they have not created a bundle, these standards/resources pop up:
+ -->
+<% @standard_list.each do |standard| %>
+  <div class = "standard">
+  <%= standard.standard %>
+    <ul class = "standard_resource">
+      <% standard.resources.each do |resource| %>
+        <a href = <%= resource.url %> >
+          <li> <%= resource.name %> </li>
+          <li> <%= resource.source %> </li>
+        </a>
+        <li> Add Resource to Bundle </li> <!-- fake-out. since they can't b/c theyre not logged in -->
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% end %>
+
+
 
 <%= link_to 'Show', @bundle %> |
-<%= link_to 'Back', bundles_path %>

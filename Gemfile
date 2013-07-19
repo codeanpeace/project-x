@@ -35,7 +35,6 @@ end
 gem 'jquery-rails'
 gem 'nokogiri'
 gem 'haml'
-
 gem 'sorcery'
 gem 'mail'
 
@@ -43,6 +42,7 @@ gem 'delayed_job_active_record'
 
 gem 'foreman'
 gem 'dotenv-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,18 +1,36 @@
-%h1 Welcome!
+%head
+  - content_for :extra_javascript do
+    :javascript
+      $(function() {
 
-/ toggle here
+        var availableTags =  ['#{@availableTags.map(&:to_s).join("', '")}'];
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+        $( "#tags" ).autocomplete({ minLength: 3 });
+        var minLength = $( "#tags" ).autocomplete( "option", "minLength" );
+      });
 
-/ search bar here
 
-#subject
-  - @subject_list.each do |subject|
-    = form_tag search_grade_path, :remote => true do
-      = hidden_field_tag :subject, subject
-      = submit_tag subject
+%body
+  %h1 Welcome!
 
-#grade
+  %div#ui-widget
+    %label{:for => "tags"} Search by Standard:
+    %input{:id => "tags", :type => "search", :results => 5}
 
-#topic
+  / toggle here
+
+
+  #subject
+    - @subject_list.each do |subject|
+      = form_tag search_grade_path, :remote => true do
+        = hidden_field_tag :subject, subject
+        = submit_tag subject
+
+  #grade
+
+  #topic
 
 
 
