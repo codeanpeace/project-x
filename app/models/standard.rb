@@ -30,15 +30,6 @@ class Standard < ActiveRecord::Base
   end
 
   # #To create an array of standards
-  # @standards_subject_topic = Standard.where(:subject => params["subject"], :topic => params["topic"])
-  # @standard_list = []
-  # @grade_standards.each do |grade_standard|
-  #   @standards_subject_topic.each do |standard_subject_topic|
-  #     if grade_standard == standard
-  #       @standard_list << standard.standard
-  #     end
-  #   end
-  # end
 
   # #To create an array of resources
   # @topic_new = @topic.split("+").join(" ")
