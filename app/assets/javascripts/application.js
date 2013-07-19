@@ -11,9 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require foundation
 //= require jquery_ujs
 //= require_tree .
 //= require jquery.ui.all
 
-$(function(){ $(document).foundation(); });
+// $(function(){ $(document).foundation(); });

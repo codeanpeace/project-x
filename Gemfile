@@ -18,7 +18,6 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'zurb-foundation'
 end
 
 group :development do
@@ -29,7 +28,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'annotate'
-  gem 'rack-mini-profiler'
+  # gem 'rack-mini-profiler'
 end
 
 gem 'jquery-rails'

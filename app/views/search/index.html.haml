@@ -1,4 +1,13 @@
 %head
+  %meta{:charset => "utf-8"}
+  %meta{:name => "viewport", :content => "width=device-width"}
+
+  %link{:rel => "stylesheet", :href => "/css/normalize.css"}
+  %link{:rel => "stylesheet", :href => "/css/foundation.css"}
+  %link{:rel => "stylesheet", :href => "/css/app.css"}
+
+  %script{:src => "/js/vendor/custom.modernizr.js"}
+
   - content_for :extra_javascript do
     :javascript
       $(function() {
@@ -19,8 +28,15 @@
     %label{:for => "tags"} Search by Standard:
     %input{:id => "tags", :type => "search", :results => 5}
 
-  / toggle here
+  %div Are you a student or a teacher?
+  %div.switch.small.round
+    %input{:id => "z", :name => "switch-z", :type => "radio"}
+    %label{:for => "z", :onclick => "", :checked => "Teacher"}Teacher
 
+    %input{:id => "z1", :name => "switch-z", :type => "radio"}
+    %label{:for => "z1", :onclick => ""}Student
+
+    %span
 
   #subject
     - @subject_list.each do |subject|
@@ -31,6 +47,12 @@
   #grade
 
   #topic
+
+%script{:src => "/js/foundation/foundation.js"}
+%script{:src => "/js/foundation/foundation.forms.js"}
+
+%script
+  $(document).foundation();
 
 
 
