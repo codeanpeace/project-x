@@ -3,11 +3,17 @@ class SearchController < ApplicationController
   skip_before_filter :require_login
 
   def index
+<<<<<<< HEAD
     @standards = Standard.all
     @availableTags = []
     @standards.each do |standard|
       @availableTags << standard.standard
     end
+    @subject_list = []
+    @standards.each do |standard|
+      standard.subject_method(@subject_list)
+    end
+=======
     @subject_list = Standard.subject_list
     # @standards = Standard.select(:subject)
     # @subject_list = []
@@ -21,6 +27,7 @@ class SearchController < ApplicationController
     # @standards.each do |standard|
     #   standard.subject_method(@subject_list)
     # end
+>>>>>>> a6af9b96cbb176f2e9c2b247c2c1305547bcf071
   end
 
   def grade

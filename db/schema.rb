@@ -88,8 +88,7 @@ ActiveRecord::Schema.define(:version => 20130717035123) do
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "profile_id"
-    t.string   "profile_type"
+    t.string   "type"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.string   "username",                        :null => false
