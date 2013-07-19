@@ -16,7 +16,7 @@
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -24,7 +24,7 @@
   <body>
 
     <% if current_user %>
-      Logged in as <%= current_user.username %>.
+      Logged in as <%= link_to current_user.username, user_url(current_user.id) %>.
       <%= link_to "Log out", logout_path %>
     <% else %>
       <%= link_to "Sign up", signup_path %> or
@@ -32,8 +32,6 @@
     <% end %>
 
     <%= yield %>
-
-    <%= javascript_include_tag "application" %>
     <%= content_for :extra_javascript %>
   </body>
 </html>

@@ -1,0 +1,10 @@
+%h1 Your Profile
+
+%ul
+  - current_user.bundles.each do |bundle|
+    %li= link_to bundle.title, bundle_url(bundle)
+    = bundle.description
+    = link_to 'Add Resources To Bundle', edit_bundle_url(bundle)
+    = link_to 'Delete Bundle', bundle_url(bundle), :method => "delete"
+
+= link_to "Search", root_url

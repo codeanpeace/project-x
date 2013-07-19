@@ -28,20 +28,7 @@ class BundlesController < ApplicationController
   def new
     #use the self.standard_list method to get that list of standards associated w what they searched
     @bundle = Bundle.new
-    @grade = Grade.where(:grade => params[:grade])
-    @grade_standards = @grade[0].standards
-    @standards_subject_topic = Standard.where(:subject => params[:subject], :topic => params[:topic])
-    @standard_list = []
-    @grade_standards.each do |grade_standard|
-      @standards_subject_topic.each do |standard_subject_topic|
-        if grade_standard == standard_subject_topic
-          @standard_list << standard_subject_topic
-        end
-      end
-    @standard_list.each do |standard|
-      @standard_list.delete(standard) if standard.resources.empty?
-    end
-    end
+    @standard_list = Standard.standard_list(params[:subject], params[:grade], params[:topic])
 
     render :edit
   end
@@ -71,7 +58,7 @@ class BundlesController < ApplicationController
 
     respond_to do |format|
       if @bundle.save
-        format.html { redirect_to @bundle, notice: 'Bundle was successfully created.' }
+        format.html { redirect_to edit_bundle_url(@bundle), notice: 'Bundle was successfully created.' }
         format.json { render json: @bundle, status: :created, location: @bundle }
       else
         format.html { render action: "new" }
@@ -88,7 +75,7 @@ class BundlesController < ApplicationController
 
     respond_to do |format|
       if @bundle.update_attributes(params[:bundle])
-        format.html { redirect_to @bundle, notice: 'Bundle was successfully updated.' }
+        format.html { redirect_to edit_bundle_url(@bundle), notice: 'Bundle was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -104,7 +91,7 @@ class BundlesController < ApplicationController
     @bundle.destroy
 
     respond_to do |format|
-      format.html { redirect_to bundles_url }
+      format.html { redirect_to user_url(current_user.id) }
       format.json { head :no_content }
     end
   end
