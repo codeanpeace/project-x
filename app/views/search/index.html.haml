@@ -11,30 +11,31 @@
 
 
 / %body
-%h1 Welcome!
+%div#main-container
+  %h1 Welcome!
 
-%div#ui-widget
-  %label{:for => "tags"} Search by Standard:
-  %input{:id => "tags", :type => "search", :results => 5}
+  %div#ui-widget
+    %label{:for => "tags"} Search by Standard:
+    %input{:id => "tags", :type => "search", :results => 5}
 
-%div.switch.small.round
-  %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
-  %label{:for => "z", :onclick => ""}Teacher
+  %div.switch.small.round
+    %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
+    %label{:for => "z", :onclick => ""}Teacher
 
-  %input{:id => "z1", :name => "switch-z", :type => "radio"}
-  %label{:for => "z1", :onclick => ""}Student
+    %input{:id => "z1", :name => "switch-z", :type => "radio"}
+    %label{:for => "z1", :onclick => ""}Student
 
-  %span
+    %span
 
-#subject
+  #subject
   - @subject_list.each do |subject|
     = form_tag search_grade_path, :remote => true do
       = hidden_field_tag :subject, subject
       = submit_tag subject
 
-#grade
+  #grade
 
-#topic
+  #topic
 
 
 / %script

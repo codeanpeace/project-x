@@ -10,7 +10,6 @@
   	<!-- Uncomment to make IE8 render like IE7 -->
   	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-  	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
@@ -23,20 +22,24 @@
   <body>
 
 
-
-    <% if current_user %>
-      Logged in as <%= link_to current_user.username, user_url(current_user.id) %>.
-      <%= link_to "Log out", logout_path %>
-    <% else %>
-      <%= link_to "Sign up", signup_path %> or
-      <%= link_to "Log in", login_path %>.
-    <% end %>
+    <div id="topbar">
+     Common Core Bundler
+      <ul id="login_nav">
+        <% if current_user %>
+          Logged in as <%= link_to current_user.username, user_url(current_user.id) %>
+         <li> <%= link_to "Log out", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
 
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
     <% end %>
+  </ul>
+</div>
 
     <%= yield %>
 
