@@ -8,7 +8,6 @@
   <p> Create your very first bundle! </p>
 <% end %>
 
-#!rewrite above as a flash alert/message/modal
 
 
 <div id="bundle_stage">
@@ -60,11 +59,9 @@
                 <%= hidden_field_tag :resource, resource.id %>
                 <%= submit_tag "Add Resource To Bundle" %>
               <% end %>
+          <button class="add_to_favorite">add to favorites</button>
 
-<!--               not sure if we should have this if we don't have favorites
- -->            <button class="add_to_favorite">add to favorites</button>
 
-  #!add ajax to create bundle
 </div>
 
 #resource search results relevant to this bundle
@@ -82,8 +79,6 @@
               <img src="/images/<%= resource.kind %>.svg" alt>
               <button class="add_to_bundle">add to bundle</button>
               <button class="add_to_favorite">add to favorites</button>
-              #!ajaxify both bundle and favorite buttons
-
             </li>
           <% end %>
         <% end %>
@@ -95,7 +90,6 @@
 
 
 
-- -- --
  <% else %>
 
 <!-- if this is the first time searching, and they have not created a bundle, these standards/resources pop up:
@@ -214,10 +208,3 @@ $(document).ready(function () {
 </script>
 
 
-
-<!-- for reference when ajaxifying add to favorites and bundle
-<%= form_tag update_bundle_url(@bundle) do %>
-  <%= hidden_field_tag :resource, resource.id %>
-  <%= submit_tag "Add Resource To Bundle" %>
-<% end %>
--->
