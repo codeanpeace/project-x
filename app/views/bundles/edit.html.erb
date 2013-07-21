@@ -1,19 +1,12 @@
-
-
 <% if current_user && current_user.bundles.empty? || !current_user %>
   <p> Create your very first bundle! </p>
 <% end %>
-
-
 
 <div id="bundle_stage">
   <form>
     Bundle Name: <input type="text" name="bundlename">
     Bundle Description: <input type="text" name="bundlescription">
-
   </form>
-
-
 
   <div id="makeMeScrollable">
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
@@ -22,14 +15,11 @@
         <div class="resource_title"><a href=<%= resource.url %>><%= resource.name %></a></div>
         <img src="/images/<%= resource.kind %>.svg" alt>
         <button class="remove_from_bundle">Remove From Bundle</button>
-
       </div>
     <% end %>
   </div>
   <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button>
-
 </div>
-
 
 <div class="resource_tiles">
   <% @standard_list.each do |standard| %>
@@ -53,8 +43,6 @@
     </div>
   <% end %>
 </div>
-
-
 
 
 <!-- jQuery library - Please load it from Google API's -->
@@ -89,62 +77,42 @@
     // None of the options are set
     $("div#makeMeScrollable").smoothDivScroll({
       hotSpotScrolling: true,
-
     });
   });
 </script>
 
 <script type="text/javascript">
-$(document).ready(function () {
-  $container = $('.container');
-  $('.container').isotope({
-    // options
-    itemSelector : '.resource',
-    layoutMode : 'fitRows'
-  });
+  $(document).ready(function () {
 
-  $container.delegate( '.add_to_bundle', 'click', function(){
-          var rid = $(this).parent().attr("id")
-          var chosenItem = $( '#'+rid);
-          console.log(chosenItem);
-          var tbb_container = $(".scrollableArea");
-          var tbb_text = $('#to_be_bundled_text');
-          var tbb_makemescrollable = $ ('#makeMeScrollable');
-          console.log(tbb_container);
-          $container.isotope( 'remove', chosenItem );
+    $container = $('.container');
+    $('.container').isotope({
+      // options
+      itemSelector : '.resource',
+      layoutMode : 'fitRows'
+    });
 
-          // console.log($chosenItem);
-          // $(chosenItem).appendTo(tbb_container);
-
-          var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
-          tbb_text.empty();
-          tbb_container.append(newdiv).attr("style", "width: 100%");
-
-
-        });
+    $container.delegate( '.add_to_bundle', 'click', function(){
+      var rid = $(this).parent().attr("id")
+      var chosenItem = $( '#'+rid);
+      // console.log(chosenItem);
+      var tbb_container = $(".scrollableArea");
+      var tbb_text = $('#to_be_bundled_text');
+      var tbb_makemescrollable = $ ('#makeMeScrollable');
+      // console.log(tbb_container);
+      $container.isotope( 'remove', chosenItem );
+      // console.log($chosenItem);
+      // $(chosenItem).appendTo(tbb_container);
+      var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
+      tbb_text.empty();
+      tbb_container.append(newdiv).attr("style", "width: 100%");
+    });
 
     var clear_tbb_container = function(){
       var tbb_container = $(".scrollableArea");
-
       tbb_container.empty();
-
-
-
-
-
-
-
-
-
-
     };
 
-     $("#bundle_me").on("click", clear_tbb_container);
+    $("#bundle_me").on("click", clear_tbb_container);
 
-
-
-});
-
+  });
 </script>
-
-
