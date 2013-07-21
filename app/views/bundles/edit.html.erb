@@ -1,8 +1,28 @@
+
+
+#hey ykat, haven't "hooked in" any of your stylesheets and whatnot - can't do it in the header since the applications.html.erb in the layouts folder under views has the header section (at least that was my impression)
+#the bare structure of the edit aka bundling page for both brand new bundles and editing existing bones is here - both the "bundling board" where resources that are in an existing bundle and to be bundled go and the search results for the relevant topic
+#still need to ajax it up
+
+<% if current_user && current_user.bundles.empty? || !current_user %>
+  <p> Create your very first bundle! </p>
+<% end %>
+
+#!rewrite above as a flash alert/message/modal
+
+
 <div id="bundle_stage">
   <form>
     Bundle Name: <input type="text" name="bundlename">
     Bundle Description: <input type="text" name="bundlescription">
+
   </form>
+
+
+    #!ajaxify this so the default appears static and is clickable/editable div that on click, returns these forms
+
+
+#bundle stage for either already bundled or to be bundled
 
   <div id="makeMeScrollable">
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
@@ -11,10 +31,12 @@
         <div class="resource_title"><a href=<%= resource.url %>><%= resource.name %></a></div>
         <img src="/images/<%= resource.kind %>.svg" alt>
         <button class="remove_from_bundle">Remove From Bundle</button>
+
       </div>
     <% end %>
   </div>
   <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button>
+
 </div>
 
 <% if params[:id] != nil %>
@@ -40,13 +62,36 @@
               <% end %>
 
 <!--               not sure if we should have this if we don't have favorites
- -->              <button class="add_to_favorite">add to favorites</button>
+ -->            <button class="add_to_favorite">add to favorites</button>
+
+  #!add ajax to create bundle
+</div>
+
+#resource search results relevant to this bundle
+<div class="resource_tiles" id="container">
+  <% @standard_list.standards.each do |standard| %>
+    <div class="standard_section" id = '<%= "standard_section_#{standard.id}" %>'>
+      <%= standard.standard %>
+      <ul class="resource_tiles_list">
+        <% standard.resources.each do |resource| %>
+          <% if !@bundle.resources.include?(resource) %>
+            <li class='<%= "resource #{resource.kind}" %>' id='<%= "resource_#{resource.id}" %>'>
+              <a href="<%= resource.url %>">
+                <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
+              </a>
+              <img src="/images/<%= resource.kind %>.svg" alt>
+              <button class="add_to_bundle">add to bundle</button>
+              <button class="add_to_favorite">add to favorites</button>
+              #!ajaxify both bundle and favorite buttons
+
             </li>
           <% end %>
         <% end %>
       </ul>
     </div>
   <% end %>
+</div>
+
 
 
 
@@ -170,3 +215,9 @@ $(document).ready(function () {
 
 
 
+<!-- for reference when ajaxifying add to favorites and bundle
+<%= form_tag update_bundle_url(@bundle) do %>
+  <%= hidden_field_tag :resource, resource.id %>
+  <%= submit_tag "Add Resource To Bundle" %>
+<% end %>
+-->
