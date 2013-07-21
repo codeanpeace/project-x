@@ -1,57 +1,44 @@
-%head
-  %meta{:charset => "utf-8"}
-  %meta{:name => "viewport", :content => "width=device-width"}
+/ %head
+/   %meta{:charset => "utf-8"}
+/   %meta{:name => "viewport", :content => "width=device-width"}
 
-  %link{:rel => "stylesheet", :href => "/css/normalize.css"}
-  %link{:rel => "stylesheet", :href => "/css/foundation.css"}
-  %link{:rel => "stylesheet", :href => "/css/app.css"}
+/   %link{:rel => "stylesheet", :href => "/css/normalize.css"}
+/   %link{:rel => "stylesheet", :href => "/css/foundation.css"}
+/   %link{:rel => "stylesheet", :href => "/css/app.css"}
 
-  %script{:src => "/js/vendor/custom.modernizr.js"}
-
-  - content_for :extra_javascript do
-    :javascript
-      $(function() {
-
-        var availableTags =  ['#{@availableTags.map(&:to_s).join("', '")}'];
-        $( "#tags" ).autocomplete({
-          source: availableTags
-        });
-        $( "#tags" ).autocomplete({ minLength: 3 });
-        var minLength = $( "#tags" ).autocomplete( "option", "minLength" );
-      });
+/   / %script{:src => "/js/vendor/custom.modernizr.js"}
 
 
-%body
-  %h1 Welcome!
 
-  %div#ui-widget
-    %label{:for => "tags"} Search by Standard:
-    %input{:id => "tags", :type => "search", :results => 5}
+/ %body
+%h1 Welcome!
 
-  %div.switch.small.round
-    %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
-    %label{:for => "z", :onclick => ""}Teacher
+%div#ui-widget
+  %label{:for => "tags"} Search by Standard:
+  %input{:id => "tags", :type => "search", :results => 5}
 
-    %input{:id => "z1", :name => "switch-z", :type => "radio"}
-    %label{:for => "z1", :onclick => ""}Student
+%div.switch.small.round
+  %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
+  %label{:for => "z", :onclick => ""}Teacher
 
-    %span
+  %input{:id => "z1", :name => "switch-z", :type => "radio"}
+  %label{:for => "z1", :onclick => ""}Student
 
-  #subject
-    - @subject_list.each do |subject|
-      = form_tag search_grade_path, :remote => true do
-        = hidden_field_tag :subject, subject
-        = submit_tag subject
+  %span
 
-  #grade
+#subject
+  - @subject_list.each do |subject|
+    = form_tag search_grade_path, :remote => true do
+      = hidden_field_tag :subject, subject
+      = submit_tag subject
 
-  #topic
+#grade
 
-%script{:src => "/js/foundation/foundation.js"}
-%script{:src => "/js/foundation/foundation.forms.js"}
+#topic
 
-%script
-  $(document).foundation();
+
+/ %script
+/   $(document).foundation();
 
 
 
