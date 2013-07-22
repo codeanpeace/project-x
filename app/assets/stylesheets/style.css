@@ -11,6 +11,7 @@ body {
   float: right;
 }
 
+<<<<<<< HEAD
 #login_nav li {
   list-style: none;
   float: left;
@@ -19,6 +20,25 @@ body {
 
 #all-encompassing-div {
   margin-top: 100px;
+=======
+#topbar ul{
+position:absolute;
+right: 10px;
+display: inline;
+}
+
+#topbar li{
+  display: inline;
+
+}
+
+#main-container{
+  margin-top: 50px;
+}
+
+.newstuff {
+  height: 100px;
+  overflow:hidden;
 }
 
 #home_link a {
@@ -106,7 +126,7 @@ margin-left: 20px;
   text-align: center;
 }
 
-li.resource {
+.resource {
   height: 200px;
   width: 200px;
   position: relative;
@@ -258,14 +278,3 @@ button#bundle_me {
           transition-property:         transform, opacity;
 }
 
-/**** disabling Isotope CSS3 transitions ****/
-
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
-}
