@@ -11,14 +11,14 @@
 
 <div id="makeMeScrollable">
   <% @resources.each do |resource| %>
-    <li class='<%= "resource #{resource.kind}" %>' id='<%= "resource_#{resource.id}" %>'>
-      <a href="<%= resource.url %>">
-        <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
-      </a>
-      <img src="/images/<%= resource.kind %>.svg" alt>
-      <button class="add_to_bundle">add to bundle</button>
-      <button class="add_to_favorite">add to favorites</button>
-    </li>
+    <div id="show_tiles">
+      <div class='<%= "resource #{resource.kind}" %>' id='<%= "resource_#{resource.id}" %>'>
+        <a href="<%= resource.url %>">
+          <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
+        </a>
+        <img src="/images/<%= resource.kind %>.svg" alt>
+      </div>
+    </div>
   <% end %>
 </div>
 
@@ -31,7 +31,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $("#makeMeScrollable").smoothDivScroll({
-      // mousewheelScrolling: "allDirections",
+      mousewheelScrolling: "allDirections",
       manualContinuousScrolling: true,
       autoScrollingMode: "onStart"
     });

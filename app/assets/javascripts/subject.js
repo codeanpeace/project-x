@@ -5,3 +5,4 @@ $('#subject input').on('click', function() {
 $('#grade input').on('click', function() {
   $('#grade').hide();
 });
+

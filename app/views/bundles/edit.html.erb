@@ -3,13 +3,6 @@
 <% end %>
 
 <div id="bundle_stage">
-  <form>
-    Bundle Name: <input type="text" name="bundlename">
-    <br>
-    Bundle Description: <input type="text" name="bundlescription">
-  </form>
-  <br>
-
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
   <div id="makeMeScrollable">
     <% @bundle.resources.each do |resource| %>
@@ -22,7 +15,13 @@
   </div>
 
   <%= form_tag update_bundle_path(@bundle.id) do %>
+    <span id = "bundle_name"><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </span>
+    <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
+    <span id = "bundle_description"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
+    <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
     <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
+    </br>
+    </br>
     <%= submit_tag "Bundle Me!", :id => "bundle_me" %>
   <% end %>
 
@@ -44,9 +43,9 @@
 
 
                 <a href="<%= resource.url %>">
-                  <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
-                </a>
-                <img src="/images/<%= resource.kind %>.svg" alt>
+                  <div class="resource_name"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
+
+                <img class = "<%= resource.kind %>" src="/images/<%= resource.kind %>.svg" alt >
                 <button class="add_to_bundle">add to bundle</button>
                 <button class="add_to_favorite">add to favorites</button>
               </div>
@@ -120,13 +119,13 @@
       console.log(duplicate_chosenItem);
       duplicate_chosenItem.appendTo($('.scrollableArea'));
       var tbb_container = $(".scrollableArea");
-      //var tbb_text = $('#to_be_bundled_text');
+      var tbb_text = $('#to_be_bundled_text');
       var tbb_makemescrollable = $ ('#makeMeScrollable');
       // console.log(tbb_container);
       // console.log($chosenItem);
       // $(chosenItem).appendTo(tbb_container);
       // var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
-      //tbb_text.empty();
+      tbb_text.empty();
       $('.scrollableArea').css('width','100%');
       $("#makeMeScrollable").smoothDivScroll(duplicate_chosenItem, "addFirst");
       $("#makeMeScrollable").smoothDivScroll("recalculateScrollableArea");
@@ -144,6 +143,16 @@
     };
 
     $("#bundle_me").on("click", handle_submit);
+
+    $('#bundle_name').on("click", function() {
+      $(this).hide();
+      $('#bundle_name_field').removeClass("hidden");
+    });
+
+    $('#bundle_description').on("click", function() {
+      $(this).hide();
+      $('#bundle_description_field').removeClass("hidden");
+    });
 
   });
 </script>
