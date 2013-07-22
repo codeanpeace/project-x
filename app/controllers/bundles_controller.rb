@@ -16,7 +16,7 @@ class BundlesController < ApplicationController
   # GET /bundles/1.json
   def show
     @bundle = Bundle.find(params[:id])
-    @standard_list = @bundle.resources
+    @resources = @bundle.resources
 
     respond_to do |format|
       format.html # show.html.erb
@@ -86,7 +86,7 @@ class BundlesController < ApplicationController
 
     respond_to do |format|
       # if @bundle.resources.update_attributes(params[:])
-      format.html { redirect_to show_bundle_url(@bundle), notice: 'Bundle was successfully updated.' }
+      format.html { redirect_to bundle_path(@bundle), notice: 'Bundle was successfully updated.' }
       format.json { head :no_content }
       # else
       #   format.html { render action: "edit" }
