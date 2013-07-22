@@ -1,25 +1,4 @@
-<h1>Listing favorite_resources</h1>
-
-<table>
-  <tr>
-    <th>Mentor</th>
-    <th>Resource</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @favorite_resources.each do |favorite_resource| %>
-  <tr>
-    <td><%= favorite_resource.mentor %></td>
-    <td><%= favorite_resource.resource %></td>
-    <td><%= link_to 'Show', favorite_resource %></td>
-    <td><%= link_to 'Edit', edit_favorite_resource_path(favorite_resource) %></td>
-    <td><%= link_to 'Destroy', favorite_resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<h1>Favorite Resources</h1>
+<% @fav_resources.each do |fav_resource| %>
+  <%= fav_resource.name %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Favorite resource', new_favorite_resource_path %>

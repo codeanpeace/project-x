@@ -81,7 +81,10 @@ class BundlesController < ApplicationController
       r_ids_array << resource.slice!(9..-1)
     end
     r_ids_array.each do |resource_id|
-      @bundle.resources << Resource.find(resource_id)
+      resource = Resource.find(resource_id)
+      if !@bundle.resources.include?(resource)
+        @bundle.resources << resource
+      end
     end
 
 

@@ -3,11 +3,13 @@
 <% end %>
 
 <div id="bundle_stage">
- <!--  <form>
+  <form>
     Bundle Name: <input type="text" name="bundlename">
+    <br>
     Bundle Description: <input type="text" name="bundlescription">
   </form>
- -->
+  <br>
+
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
   <div id="makeMeScrollable">
     <% @bundle.resources.each do |resource| %>
@@ -96,6 +98,19 @@
       // options
       itemSelector : '.resource',
       layoutMode : 'fitRows'
+    });
+
+
+
+    $(".add_to_favorite").on("click", function(e) {
+      console.log(':)');
+      $.ajax({
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        type: "POST",
+        url: "favorite/" + $(this).parent().attr("id"),
+        // success: function() {}
+      })
+      e.preventDefault();
     });
 
     $container.delegate( '.add_to_bundle', 'click', function(){

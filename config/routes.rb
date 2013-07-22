@@ -22,6 +22,10 @@ Projectx::Application.routes.draw do
   resources :sessions
   resources :password_resets
 
+  # post "user/:user_id/:favorited_type/favorite/:favorited_id" => "favorites#create", :as => "favorite"
+  # post "favorite" => "favorites#create", :as => "favorite"
+  post "favorite/:resource_id" => "favorites#create", :as => "favorite"
+  get "favorites/resources/index" => "favorites#resources", :as => "favorite_resources"
 
  #  get "/standards/:grade" => 'standards#grade'
  #  # match "/standards/:grade" => redirect("/grades/:grade")
