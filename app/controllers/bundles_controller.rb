@@ -40,7 +40,7 @@ class BundlesController < ApplicationController
   def edit
     if params[:id] != nil
       @bundle = Bundle.find(params[:id])
-      @standard_list = @bundle.resources
+      @standard_list = @bundle.standards
     end
 
   end
