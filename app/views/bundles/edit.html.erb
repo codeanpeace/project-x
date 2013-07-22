@@ -7,7 +7,7 @@
   <div id="makeMeScrollable">
     <% @bundle.resources.each do |resource| %>
       <div class="bundle_stage_resource" id='<%= "resource_#{resource.id}" %>'>
-        <div class="resource_title"><a href=<%= resource.url %>><br><%= resource.name.slice!(0..10) %>...</a></div>
+        <div class="resource_title"><a href=<%= resource.url %>><%= resource.name %></a></div>
         <img src="/images/<%= resource.kind %>.svg" alt>
         <button class="remove_from_bundle">Remove From Bundle</button>
       </div>
@@ -97,6 +97,19 @@
       // options
       itemSelector : '.resource',
       layoutMode : 'fitRows'
+    });
+
+
+
+    $(".add_to_favorite").on("click", function(e) {
+      console.log(':)');
+      $.ajax({
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        type: "POST",
+        url: "favorite/" + $(this).parent().attr("id"),
+        // success: function() {}
+      })
+      e.preventDefault();
     });
 
     $container.delegate( '.add_to_bundle', 'click', function(){
