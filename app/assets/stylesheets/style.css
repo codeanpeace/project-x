@@ -26,8 +26,14 @@ body {
   overflow: hidden;
   margin: 0 auto;
   text-align: center;
+
 }
 
+
+#main-container button {
+background-color: #90bab6;
+
+}
 #ui-widget{
   padding: 20px;
 }
@@ -81,6 +87,7 @@ padding-right: 200px;
 position:absolute;
 right: 10px;
 display: inline;
+font-color: white;
 }
 
 #topbar li{
@@ -119,6 +126,9 @@ display: inline;
 
 }
 
+#main-container img{
+  border: 3px solid #90bab6;
+}
 .newstuff button{
   border: 1px solid white;
   background-color: #ebede0;
@@ -195,7 +205,8 @@ padding-top: 30px;
 }
 #home_link a {
   text-decoration: none;
-  color: black;
+  color: white;
+  font-size: 25px;
   float: left;
 }
 
