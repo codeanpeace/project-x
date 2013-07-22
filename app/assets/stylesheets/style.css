@@ -365,3 +365,21 @@ button#bundle_me {
           transition-property:         transform, opacity;
 }
 
+#show_tiles .resource {
+  width: 500px;
+  height: 500px
+}
+
+#show_tiles .resource img {
+  width:70%;
+  position:absolute;
+  right:70px;
+  top: 100px;
+}
+
+#show_tiles .resource_name {
+  position: absolute;
+  right:0px;
+  left: 100px;
+  top: 40px;
+}
