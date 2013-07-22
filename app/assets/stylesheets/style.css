@@ -11,16 +11,16 @@ body {
   float: right;
 }
 
-<<<<<<< HEAD
 #login_nav li {
   list-style: none;
   float: left;
   margin-left: 5px;
 }
 
-#all-encompassing-div {
+/*#all-encompassing-div {
   margin-top: 100px;
-=======
+}
+*/
 #topbar ul{
 position:absolute;
 right: 10px;

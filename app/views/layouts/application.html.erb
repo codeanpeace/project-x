@@ -15,6 +15,7 @@
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "/smoothDivScroll.css" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
