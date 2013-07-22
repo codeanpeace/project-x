@@ -41,8 +41,8 @@
               <div class ="stuff" id='<%= "resource_#{resource.id}" %>' >
 
 
-                <a href="<%= resource.url %>">
-                  <div class="resource_name"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
+
+                  <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
 
                 <img class = "<%= resource.kind %>" src="/images/<%= resource.kind %>.svg" alt >
                 <button class="add_to_bundle">add to bundle</button>

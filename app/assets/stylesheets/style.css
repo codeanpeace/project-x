@@ -255,15 +255,25 @@ margin-left: 20px;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
-  border: 1px solid black;
-  background-color:#cbc8b5;
+
+  background-color: rgb(144, 186, 182);
   text-align: center;
 }
 
-.resource_title{
-  padding-top: 20px;
+.isotope-item:hover{
+  margin: 10px;
+}
+.resource_name{
+  padding-top: 10px;
+  font-color: #ebede0;
 
 
+}
+
+.resource_name a{
+  text-decoration: none;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .resource button {
