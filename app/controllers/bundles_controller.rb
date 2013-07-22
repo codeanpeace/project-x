@@ -16,6 +16,7 @@ class BundlesController < ApplicationController
   # GET /bundles/1.json
   def show
     @bundle = Bundle.find(params[:id])
+    @resources = @bundle.resources
 
     respond_to do |format|
       format.html # show.html.erb
@@ -53,7 +54,7 @@ class BundlesController < ApplicationController
   # end
 
   def create
-    @bundle = Bundle.new(:user_id => current_user.id, :title => params[:bundle][:title], :description => params[:bundle][:description])
+    @bundle = Bundle.create(:user_id => current_user.id, :title => params[:bundle][:title], :description => params[:bundle][:description])
     #all the standards associated with a bundle when it was first searched. ie when it was first narrowed down by topic,
     #so that when the person returns to the page, they will see the same search results
     params[:standards].split(", ").each do |standard_id|
@@ -85,13 +86,13 @@ class BundlesController < ApplicationController
 
 
     respond_to do |format|
-      if @bundle.update_attributes(params[:bundle])
-        format.html { redirect_to edit_bundle_url(@bundle), notice: 'Bundle was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @bundle.errors, status: :unprocessable_entity }
-      end
+      # if @bundle.resources.update_attributes(params[:])
+      format.html { redirect_to bundle_path(@bundle), notice: 'Bundle was successfully updated.' }
+      format.json { head :no_content }
+      # else
+      #   format.html { render action: "edit" }
+      #   format.json { render json: @bundle.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
