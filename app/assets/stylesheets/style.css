@@ -33,10 +33,7 @@ body {
   margin-left: 5px;
 }
 
-/*#all-encompassing-div {
-  margin-top: 100px;
-}
-*/
+
 #topbar ul{
 position:absolute;
 right: 10px;
@@ -66,26 +63,43 @@ display: inline;
   height: 190px;
   border: 1px solid black;
   text-align: center;
+  size: 14px;
+
 }
 .newstuff img {
 margin: 0 auto;
-padding-left: 30px;
-padding-right: 30px;
-opacity: 0.6;
+min-height: 40px;
+
+padding-left: 20px;
+padding-right: 20px;
+opacity: 0.3;
 }
 
-.newstuff a {
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
+.newstuff .game {
+padding-top: 15px;
+
+}
+
+
+.newstuff .resource_name a {
+  font-size: 16px;
+  float:left;
+
+  max-height: 30px;
+  margin-bottom: 10px;
+  overflow:hidden!important;
+  text-decoration: none;
 
 }
 
 .newstuff .resource_name {
-  padding: 10px;
-  padding-bottom: 0px;
+
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
+
+
 
 
 .newstuff .add_to_bundle {
@@ -97,9 +111,16 @@ opacity: 0.6;
 
   position:absolute !important;
   bottom:0;
-  right:0;
-  margin:0;
+  margin:0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+ text-align: center;
 
+}
+
+#bundle_stage form{
+  padding-top: 20px;
+  text-align:center;
 }
 
 .bundle_stage_resource{
@@ -291,7 +312,6 @@ button#bundle_me {
 #makeMeScrollable div.scrollableArea *
 {
   position: relative;
-  float: left;
 
 
   text-align: center;
