@@ -12,7 +12,7 @@
   <div id="makeMeScrollable">
     <% @bundle.resources.each do |resource| %>
       <div class="bundle_stage_resource" id='<%= "resource_#{resource.id}" %>'>
-        <div class="resource_title"><a href=<%= resource.url %>><%= resource.name %></a></div>
+        <div class="resource_title"><a href=<%= resource.url %>><br><%= resource.name %></a></div>
         <img src="/images/<%= resource.kind %>.svg" alt>
         <button class="remove_from_bundle">Remove From Bundle</button>
       </div>
@@ -42,8 +42,8 @@
 
 
                 <a href="<%= resource.url %>">
-                  <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
-                </a>
+                  <div class="resource_name"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
+
                 <img src="/images/<%= resource.kind %>.svg" alt>
                 <button class="add_to_bundle">add to bundle</button>
                 <button class="add_to_favorite">add to favorites</button>
@@ -105,13 +105,13 @@
       console.log(duplicate_chosenItem);
       duplicate_chosenItem.appendTo($('.scrollableArea'));
       var tbb_container = $(".scrollableArea");
-      //var tbb_text = $('#to_be_bundled_text');
+      var tbb_text = $('#to_be_bundled_text');
       var tbb_makemescrollable = $ ('#makeMeScrollable');
       // console.log(tbb_container);
       // console.log($chosenItem);
       // $(chosenItem).appendTo(tbb_container);
       // var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
-      //tbb_text.empty();
+      tbb_text.empty();
       $('.scrollableArea').css('width','100%');
       $("#makeMeScrollable").smoothDivScroll(duplicate_chosenItem, "addFirst");
       $("#makeMeScrollable").smoothDivScroll("recalculateScrollableArea");

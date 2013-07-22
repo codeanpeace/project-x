@@ -52,15 +52,39 @@ display: inline;
   margin-top: 50px;
 }
 
+.stuff {
+  text-align: center;
+}
 
 #all-encompassing-div{
   margin-top: 50px;
 }
 .newstuff {
   width: 150px;
-  text-align: center;
+  height: 190px;
   border: 1px solid black;
+  text-align: center;
 }
+.newstuff img {
+margin: 0 auto;
+padding-left: 30px;
+padding-right: 30px;
+opacity: 0.6;
+}
+
+.newstuff a {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+
+}
+
+.newstuff .resource_name {
+  padding: 10px;
+  margin: 0 auto;
+
+}
+
 
 .newstuff .add_to_bundle {
   color: red;
@@ -258,7 +282,7 @@ button#bundle_me {
 {
   position: relative;
   float: left;
-  margin: 10px;
+
 
   text-align: center;
 
