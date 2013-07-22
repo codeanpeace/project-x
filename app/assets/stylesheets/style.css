@@ -8,12 +8,25 @@ body {
 }
 
 
+#topbar ul{
+position:absolute;
+right: 10px;
+display: inline;
+}
 
+#topbar li{
+  display: inline;
+
+}
 
 #main-container{
   margin-top: 50px;
 }
 
+.newstuff {
+  height: 100px;
+  overflow:hidden;
+}
 
 
 h3 {
@@ -95,7 +108,7 @@ margin-left: 20px;
   text-align: center;
 }
 
-li.resource {
+.resource {
   height: 200px;
   width: 200px;
   position: relative;

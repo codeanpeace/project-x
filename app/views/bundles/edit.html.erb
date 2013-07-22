@@ -30,12 +30,16 @@
         <% standard.resources.each do |resource| %>
           <% if !@bundle.resources.include?(resource) %>
             <li class='<%= "resource #{resource.kind}" %>' id='<%= "resource_#{resource.id}" %>'>
-              <a href="<%= resource.url %>">
-                <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
-              </a>
-              <img src="/images/<%= resource.kind %>.svg" alt>
-              <button class="add_to_bundle">add to bundle</button>
-              <button class="add_to_favorite">add to favorites</button>
+              <div class ="stuff" id='<%= "resource_#{resource.id}" %>' >
+
+
+                <a href="<%= resource.url %>">
+                  <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
+                </a>
+                <img src="/images/<%= resource.kind %>.svg" alt>
+                <button class="add_to_bundle">add to bundle</button>
+                <button class="add_to_favorite">add to favorites</button>
+              </div>
             </li>
           <% end %>
         <% end %>
@@ -77,6 +81,7 @@
     // None of the options are set
     $("div#makeMeScrollable").smoothDivScroll({
       hotSpotScrolling: true,
+      autoScrollingMode: "onStart"
     });
   });
 </script>
@@ -94,7 +99,8 @@
     $container.delegate( '.add_to_bundle', 'click', function(){
       var rid = $(this).parent().attr("id")
       var chosenItem = $( '#'+rid);
-      // console.log(chosenItem);
+      var duplicate_chosenItem = chosenItem.clone().removeClass('isotope-item').children().first().addClass('resource');
+
       var tbb_container = $(".scrollableArea");
       var tbb_text = $('#to_be_bundled_text');
       var tbb_makemescrollable = $ ('#makeMeScrollable');
@@ -104,7 +110,7 @@
       // $(chosenItem).appendTo(tbb_container);
       var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
       tbb_text.empty();
-      tbb_container.append(newdiv).attr("style", "width: 100%");
+      tbb_container.append(duplicate_chosenItem).attr("style", "width: 100%");
     });
 
     var clear_tbb_container = function(){
