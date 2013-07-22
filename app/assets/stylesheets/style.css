@@ -60,6 +60,8 @@ display: inline;
   margin-top: 50px;
 }
 .newstuff {
+  position:relative;
+  float:left;
   width: 150px;
   height: 190px;
   border: 1px solid black;
@@ -81,7 +83,7 @@ opacity: 0.6;
 
 .newstuff .resource_name {
   padding: 10px;
-  margin: 0 auto;
+  padding-bottom: 0px;
 
 }
 
@@ -91,6 +93,14 @@ opacity: 0.6;
   display:none;
 }
 
+.newstuff .add_to_favorite {
+
+  position:absolute !important;
+  bottom:0;
+  right:0;
+  margin:0;
+
+}
 
 .bundle_stage_resource{
     width: 150px;
