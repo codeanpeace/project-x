@@ -52,21 +52,55 @@ display: inline;
   margin-top: 50px;
 }
 
+.stuff {
+  text-align: center;
+}
 
 #all-encompassing-div{
   margin-top: 50px;
 }
 .newstuff {
+  position:relative;
+  float:left;
   width: 150px;
-  text-align: center;
+  height: 190px;
   border: 1px solid black;
+  text-align: center;
 }
+.newstuff img {
+margin: 0 auto;
+padding-left: 30px;
+padding-right: 30px;
+opacity: 0.6;
+}
+
+.newstuff a {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+
+}
+
+.newstuff .resource_name {
+  padding: 10px;
+  padding-bottom: 0px;
+
+}
+
 
 .newstuff .add_to_bundle {
   color: red;
   display:none;
 }
 
+.newstuff .add_to_favorite {
+
+  position:absolute !important;
+  bottom:0;
+  right:0;
+  margin:0;
+
+}
 
 .bundle_stage_resource{
     width: 150px;
@@ -258,7 +292,7 @@ button#bundle_me {
 {
   position: relative;
   float: left;
-  margin: 10px;
+
 
   text-align: center;
 
