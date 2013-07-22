@@ -10,18 +10,16 @@
 </h2>
 
 <div id="makeMeScrollable">
-  <div id="show_tiles"
-    <% @resources.each do |resource| %>
+  <% @resources.each do |resource| %>
+    <div id="show_tiles">
       <div class='<%= "resource #{resource.kind}" %>' id='<%= "resource_#{resource.id}" %>'>
         <a href="<%= resource.url %>">
           <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
         </a>
         <img src="/images/<%= resource.kind %>.svg" alt>
-        <button class="add_to_bundle">add to bundle</button>
-        <button class="add_to_favorite">add to favorites</button>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 
@@ -33,7 +31,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $("#makeMeScrollable").smoothDivScroll({
-      // mousewheelScrolling: "allDirections",
+      mousewheelScrolling: "allDirections",
       manualContinuousScrolling: true,
       autoScrollingMode: "onStart"
     });
