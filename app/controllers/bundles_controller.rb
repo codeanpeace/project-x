@@ -75,7 +75,14 @@ class BundlesController < ApplicationController
   # PUT /bundles/1.json
   def update
     @bundle = Bundle.find(params[:id])
-    @bundle.resources << Resource.find(params[:resource])
+    r_ids_array = []
+    params[:resources].split(",").slice!(1..-1).each do |resource|
+      r_ids_array << resource.slice!(9..-1)
+    end
+    r_ids_array.each do |resource_id|
+      @bundle.resources << Resource.find(resource_id)
+    end
+    binding.pry
 
     respond_to do |format|
       if @bundle.update_attributes(params[:bundle])

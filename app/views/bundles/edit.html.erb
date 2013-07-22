@@ -3,11 +3,11 @@
 <% end %>
 
 <div id="bundle_stage">
-  <form>
+ <!--  <form>
     Bundle Name: <input type="text" name="bundlename">
     Bundle Description: <input type="text" name="bundlescription">
   </form>
-
+ -->
   <div id="makeMeScrollable">
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
     <% @bundle.resources.each do |resource| %>
@@ -18,7 +18,13 @@
       </div>
     <% end %>
   </div>
-  <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button>
+
+  <%= form_tag update_bundle_path(@bundle.id) do %>
+    <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
+    <%= submit_tag "Bundle Me!", :id => "bundle_me" %>
+  <% end %>
+
+  <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->
 </div>
 
 <div class="resource_tiles">
@@ -107,12 +113,56 @@
       tbb_container.append(newdiv).attr("style", "width: 100%");
     });
 
-    var clear_tbb_container = function(){
+    var handle_submit = function(e){
+      var r_id_array = []
+      $.each($(".scrollableArea").children(), function(i, r) {r_id_array.push(r.id)} )
+      $("#resources_input").val(r_id_array)
       var tbb_container = $(".scrollableArea");
       tbb_container.empty();
+      e.preventDefault();
+      $("form").submit();
     };
 
-    $("#bundle_me").on("click", clear_tbb_container);
+    $("#bundle_me").on("click", handle_submit);
 
   });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
