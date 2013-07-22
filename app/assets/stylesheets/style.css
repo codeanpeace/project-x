@@ -3,8 +3,21 @@ body {
   font-family: sans-serif;
 }
 
+#bundle_name, #bundle_description {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+#bundle_description {
+  margin-left: 30px;
+}
+
 *, div {
 
+}
+
+.hidden {
+  display: none;
 }
 
 #main-container{
