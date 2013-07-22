@@ -121,8 +121,12 @@ padding-top: 15px;
 #bundle_stage form{
   padding-top: 20px;
   text-align:center;
+  margin-bottom: 20px;
 }
 
+#bundle_stage {
+padding-top: 30px;
+}
 .bundle_stage_resource{
     width: 150px;
     text-align: center;
@@ -312,7 +316,7 @@ button#bundle_me {
 #makeMeScrollable div.scrollableArea *
 {
   position: relative;
-
+  float: left;
 
   text-align: center;
 
