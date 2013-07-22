@@ -20,6 +20,36 @@ body {
   display: none;
 }
 
+#main-container{
+  width: 800px;
+  height: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#ui-widget{
+  padding: 20px;
+}
+
+#ui-widget label{
+  padding: 20px;
+}
+#main-container h1 {
+  font-size: 44px;
+  padding: 20px;
+}
+
+#switch {
+padding-left: 200px;
+padding-right: 200px;
+}
+#main-container form {
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+}
+
 #user_profile_header {
   font-size: 30px;
 }
@@ -46,10 +76,7 @@ body {
   margin-left: 5px;
 }
 
-/*#all-encompassing-div {
-  margin-top: 100px;
-}
-*/
+
 #topbar ul{
 position:absolute;
 right: 10px;
@@ -73,30 +100,49 @@ display: inline;
   margin-top: 50px;
 }
 .newstuff {
+  position:relative;
+  float:left;
   width: 150px;
   height: 190px;
   border: 1px solid black;
   text-align: center;
+  size: 14px;
+
 }
 .newstuff img {
 margin: 0 auto;
-padding-left: 30px;
-padding-right: 30px;
-opacity: 0.6;
+min-height: 40px;
+
+padding-left: 20px;
+padding-right: 20px;
+opacity: 0.3;
 }
 
-.newstuff a {
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
+.newstuff .game {
+padding-top: 15px;
+
+}
+
+
+.newstuff .resource_name a {
+  font-size: 16px;
+  float:left;
+
+  max-height: 30px;
+  margin-bottom: 10px;
+  overflow:hidden!important;
+  text-decoration: none;
 
 }
 
 .newstuff .resource_name {
-  padding: 10px;
-  margin: 0 auto;
+
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
+
+
 
 
 .newstuff .add_to_bundle {
@@ -104,7 +150,26 @@ opacity: 0.6;
   display:none;
 }
 
+.newstuff .add_to_favorite {
 
+  position:absolute !important;
+  bottom:0;
+  margin:0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+ text-align: center;
+
+}
+
+#bundle_stage form{
+  padding-top: 20px;
+  text-align:center;
+  margin-bottom: 20px;
+}
+
+#bundle_stage {
+padding-top: 30px;
+}
 .bundle_stage_resource{
     width: 150px;
     text-align: center;
@@ -296,7 +361,6 @@ button#bundle_me {
   position: relative;
   float: left;
 
-
   text-align: center;
 
 
@@ -348,3 +412,21 @@ button#bundle_me {
           transition-property:         transform, opacity;
 }
 
+#show_tiles .resource {
+  width: 500px;
+  height: 500px
+}
+
+#show_tiles .resource img {
+  width:70%;
+  position:absolute;
+  right:70px;
+  top: 100px;
+}
+
+#show_tiles .resource_name {
+  position: absolute;
+  right:0px;
+  left: 100px;
+  top: 40px;
+}
