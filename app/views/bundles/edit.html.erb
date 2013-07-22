@@ -3,13 +3,9 @@
 <% end %>
 
 <div id="bundle_stage">
-  <form>
-    Bundle Name: <input type="text" name="bundlename">
-    Bundle Description: <input type="text" name="bundlescription">
-  </form>
 
-  <div id="makeMeScrollable">
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
+  <div id="makeMeScrollable">
     <% @bundle.resources.each do |resource| %>
       <div class="bundle_stage_resource" id='<%= "resource_#{resource.id}" %>'>
         <div class="resource_title"><a href=<%= resource.url %>><%= resource.name %></a></div>
@@ -20,6 +16,8 @@
   </div>
   <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button>
 </div>
+
+
 
 <div class="resource_tiles">
   <% @standard_list.each do |standard| %>
@@ -83,11 +81,6 @@
       hotSpotScrolling: true,
       autoScrollingMode: "onStart"
     });
-  });
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
 
     $container = $('.container');
     $('.container').isotope({
@@ -99,18 +92,20 @@
     $container.delegate( '.add_to_bundle', 'click', function(){
       var rid = $(this).parent().attr("id")
       var chosenItem = $( '#'+rid);
-      var duplicate_chosenItem = chosenItem.clone().removeClass('isotope-item').children().first().addClass('resource');
-
+      var duplicate_chosenItem = $('.stuff', chosenItem.clone());
+      duplicate_chosenItem.appendTo($('.scrollableArea'));
       var tbb_container = $(".scrollableArea");
-      var tbb_text = $('#to_be_bundled_text');
+      //var tbb_text = $('#to_be_bundled_text');
       var tbb_makemescrollable = $ ('#makeMeScrollable');
       // console.log(tbb_container);
       $container.isotope( 'remove', chosenItem );
       // console.log($chosenItem);
       // $(chosenItem).appendTo(tbb_container);
-      var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
-      tbb_text.empty();
-      tbb_container.append(duplicate_chosenItem).attr("style", "width: 100%");
+      // var newdiv = $('<div>').attr("id", rid).addClass('tbb_resource').text(chosenItem.children().first().text());
+      //tbb_text.empty();
+      $('.scrollableArea').css('width','100%');
+      $("#makeMeScrollable").smoothDivScroll(duplicate_chosenItem, "addFirst");
+      $("#makeMeScrollable").smoothDivScroll("recalculateScrollableArea");
     });
 
     var clear_tbb_container = function(){
