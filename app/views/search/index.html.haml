@@ -28,10 +28,10 @@
     %span
 
   #subject
-  - @subject_list.each do |subject|
-    = form_tag search_grade_path, :remote => true do
-      = hidden_field_tag :subject, subject
-      = submit_tag subject
+    - @subject_list.each do |subject|
+      = form_tag search_grade_path, :remote => true do
+        = hidden_field_tag :subject, subject
+        = submit_tag subject
 
   #grade
 
