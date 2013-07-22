@@ -16,4 +16,42 @@
   <% end %>
 </h2>
 
+
 <%= link_to 'Add Resources To Bundle', edit_bundle_url(@bundle) %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#makeMeScrollable").smoothDivScroll({
+      mousewheelScrolling: "allDirections",
+      manualContinuousScrolling: true,
+      autoScrollingMode: "onStart"
+    });
+  });
+</script>
+
+
+<div id="makeMeScrollable">
+  <div class="resource_tiles">
+    <% @standard_list.each do |standard| %>
+      <div class="standard_section" id = '<%= "standard_section_#{standard.id}" %>'>
+        <h3><%= standard.standard %></h3>
+        <hr>
+        <ul class="resource_tiles_list container">
+          <% standard.resources.each do |resource| %>
+            <% if !@bundle.resources.include?(resource) %>
+              <li class='<%= "resource #{resource.kind}" %>' id='<%= "resource_#{resource.id}" %>'>
+                <a href="<%= resource.url %>">
+                  <div class="resource_name"><%= resource.name %> <%= resource.source %></div>
+                </a>
+                <img src="/images/<%= resource.kind %>.svg" alt>
+                <button class="add_to_bundle">add to bundle</button>
+                <button class="add_to_favorite">add to favorites</button>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
