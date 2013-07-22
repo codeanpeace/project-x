@@ -7,6 +7,33 @@ body {
 
 }
 
+#main-container{
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#ui-widget{
+  padding: 20px;
+}
+
+#ui-widget label{
+  padding: 20px;
+}
+#main-container h1 {
+  font-size: 44px;
+  padding: 20px;
+}
+
+#switch {
+
+}
+#main-container form {
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+}
+
 #user_profile_header {
   font-size: 30px;
 }

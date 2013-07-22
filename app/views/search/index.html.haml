@@ -16,16 +16,18 @@
 
   %div#ui-widget
     %label{:for => "tags"} Search by Standard:
+    %br
+    %br
     %input{:id => "tags", :type => "search", :results => 5}
+  %div#switch
+    %div.switch.small.round
+      %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
+      %label{:for => "z", :onclick => ""}Teacher
 
-  %div.switch.small.round
-    %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
-    %label{:for => "z", :onclick => ""}Teacher
+      %input{:id => "z1", :name => "switch-z", :type => "radio"}
+      %label{:for => "z1", :onclick => ""}Student
 
-    %input{:id => "z1", :name => "switch-z", :type => "radio"}
-    %label{:for => "z1", :onclick => ""}Student
-
-    %span
+      %span
 
   #subject
     - @subject_list.each do |subject|
