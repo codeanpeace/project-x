@@ -7,6 +7,22 @@ body {
 
 }
 
+#user_profile_header {
+  font-size: 30px;
+}
+
+#user_profile_div {
+  border: solid 1px;
+  border-radius: 5px;
+ width: 300px;
+  height: 500px;
+  margin: auto;
+}
+#user_profile_div ul {
+  margin-top: 20px;
+
+}
+
 #login_nav {
   float: right;
 }
@@ -37,8 +53,14 @@ display: inline;
 }
 
 .newstuff {
-  height: 100px;
-  overflow:hidden;
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.newstuff .add_to_bundle {
+  color: red;
+  display:none;
 }
 
 #home_link a {

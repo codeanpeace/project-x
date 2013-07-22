@@ -27,7 +27,7 @@ class BundlesController < ApplicationController
   # GET /bundles/new.json
   def new
     #use the self.standard_list method to get that list of standards associated w what they searched
-    @bundle = Bundle.create
+    @bundle = Bundle.create(:user_id => current_user.id)
     @standard_list = Standard.standard_list(params[:subject], params[:grade], params[:topic])
     @standard_list.each do |standard|
       @bundle.standards << standard
@@ -82,7 +82,7 @@ class BundlesController < ApplicationController
     r_ids_array.each do |resource_id|
       @bundle.resources << Resource.find(resource_id)
     end
-    binding.pry
+
 
     respond_to do |format|
       if @bundle.update_attributes(params[:bundle])
