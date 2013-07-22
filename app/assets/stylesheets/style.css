@@ -63,6 +63,13 @@ display: inline;
   display:none;
 }
 
+
+.bundle_stage_resource{
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+
+}
 #home_link a {
   text-decoration: none;
   color: black;
