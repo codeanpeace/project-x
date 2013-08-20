@@ -1,6 +1,6 @@
 body {
   background-color: #ebede0;
-  font-family: sans-serif;
+
 }
 
 #bundle_name, #bundle_description {
@@ -253,7 +253,7 @@ padding: 10px;
 #to_be_bundled {
   width:100%;
   position:fixed;
-  background-color:#90bab6;
+  background-color:#2c3e50;
   min-height: 150px;
   text-align: center;
   z-index: 10;
@@ -282,7 +282,7 @@ padding: 10px;
 .resource_tiles {
   width: 100%;
   margin: auto;
-  background-color: #ebede0;
+  background-image:url('light_wool.png');
   text-align: center;
 
 }
@@ -377,7 +377,7 @@ button#bundle_me {
 
 
 #topbar {
-  background-color:#90bab6;
+  background-color:#2c3e50;
   color:#000000;
 
   height:50px;
@@ -477,4 +477,9 @@ button#bundle_me {
   right:0px;
   left: 100px;
   top: 40px;
+}
+
+#bundle_stage {
+  background-color: #2c3e50;
+  background-image:url('purty_wood.png');
 }
