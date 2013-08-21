@@ -74,38 +74,54 @@ padding-right: 200px;
 
   margin: 0;
   padding: 0;
+  float: left;
 }
 
 #login_nav li {
   list-style: none;
 
+  margin-bottom: 0;
+  padding-bottom: 0;
   text-decoration: none;
   color: rgb(47, 46, 46);
-  font-size: 16px;
+  font-size: 14px;
   color: white;
-  height: 30px;
+  height: 60px;
+  width: 200px;
+  line-height: 26px;
   overflow: hidden;
+  padding:50px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 
-  background-color: rgb(149, 165, 166);
+  /*background-color: rgb(241, 196, 15);*/
 
 }
 
 #login_nav li:nth-child(2) {
-  background-color: rgb(236, 240, 241);
+  /*background-color: rgb(236, 240, 241);*/
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 20px;
 }
 
 #login_nav a {
   text-decoration: none;
   font-size: 24px;
+  font-color: white;
+  text-transform: capitalize;
+
 }
 
 #login_nav i {
-  font-size: 30px;
+  font-size: 20px;
+
 }
 #topbar ul{
 position: fixed;
 right: 0;
-width: 260px;
+width: 200px;
+display: inline;
 
 font-color: white;
 }
@@ -564,4 +580,8 @@ button#bundle_name, button#bundle_description {
   padding-right: 0px;
 
 
+}
+
+#logout_link {
+  padding-top: 10px;
 }

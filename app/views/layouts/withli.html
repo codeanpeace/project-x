@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Uncomment to make IE8 render like IE7 -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "/smoothDivScroll.css" %>
+    <%= javascript_include_tag "application" %>
+     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+    <div id="topbar">
+      <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
+       <i class="icon-shield"></i> CoreQuest
+      <% end %>
+
+      <ul id="login_nav">
+        <% if current_user %>
+
+          <li> Logged in as
+
+            <%= link_to current_user.username, user_url(current_user.id) %> </li>
+          <li id = "logout_link"><i class="icon-signout"></i> <%= link_to "Log out", logout_path %></li>
+
+        <% else %>
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li> | </li>
+          <li id = "login_link"><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id = "all-encompassing-div">
+      <%= yield %>
+    </div>
+
+    <%= content_for :extra_javascript %>
+  </body>
+</html>
