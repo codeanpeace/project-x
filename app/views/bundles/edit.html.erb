@@ -19,9 +19,9 @@
 <div id="bundlemenu">
     <div id ="namedesc">
       <%= form_tag update_bundle_path(@bundle.id) do %>
-        <span id = "bundle_name" class = "sun-flower-button"><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </span>
+        <span id = "bundle_name"><i class="icon-pencil"></i><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </span>
         <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
-        <span id = "bundle_description"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
+        <span id = "bundle_description"><i class="icon-edit"></i> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
         <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
         <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
 
