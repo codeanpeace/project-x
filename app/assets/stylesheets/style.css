@@ -104,6 +104,7 @@ font-color: white;
 #all-encompassing-div{
   margin-top: 50px;
   float: left;
+  width: 100%;
 }
 .newstuff {
   position:relative;
@@ -509,6 +510,7 @@ button#bundle_me, button#bundlename {
   height: 40px;
   z-index: 300;
   margin-top: 250px;
+
 }
 
 button#bundlename, button#bundledescription {
