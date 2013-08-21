@@ -13,25 +13,20 @@
       </div>
     <% end %>
   </div>
+  </div>
+<div id="bundlemenu">
 
-  <%= form_tag update_bundle_path(@bundle.id) do %>
-    <span id = "bundle_name"><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </span>
-    <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
-    <span id = "bundle_description"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
-    <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
-    <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
-    <button id ="bundlename" class = "midnight-blue-flat-button">Bundle Name</button>
-    <%= button_tag(type: 'submit', :id => "bundle_me", :class => "emerald-flat-button") do %>
-     <i class="icon-ok icon-archive"></i> Bundle
+    <button id ="bundlename" class = "midnight-blue-flat-button"><i class="icon-pencil"></i>  Bundle Name</button>
+    <button id ="bundledescription" class = "midnight-blue-flat-button"><i class="icon-edit"></i> Bundle Description</button>
+    <%= button_tag(type: 'submit', :id => "bundle_me", :class => "sun-flower-button") do %>
+     <i class="icon-archive"></i> Bundle
     <% end %>
 
 
-  <% end %>
-
   <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->
+
+
 </div>
-
-
 
 <div class="resource_tiles">
   <% @standard_list.each do |standard| %>
