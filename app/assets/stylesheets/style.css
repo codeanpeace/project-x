@@ -78,24 +78,32 @@ padding-right: 200px;
 
 #login_nav li {
   list-style: none;
-  float: left;
-  background-color: rgb(226, 182, 7);
-  width: 120px;
-  line-height: 25px;
-  height: 60px;
-  font-size: 14px;
+
+  text-decoration: none;
+  color: rgb(47, 46, 46);
+
+  color: white;
+
+  height: 30px;
+  background-color: rgb(149, 165, 166);
+
+}
+
+#login_nav a {
+  text-decoration: none;
 }
 
 
 #topbar ul{
-position:absolute;
-right: 10px;
-display: inline;
+position: fixed;
+right: 0;
+width: 160px;
+
 font-color: white;
 }
 
 #topbar li{
-  display: inline;
+
 
 }
 
