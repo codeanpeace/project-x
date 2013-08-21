@@ -81,23 +81,31 @@ padding-right: 200px;
 
   text-decoration: none;
   color: rgb(47, 46, 46);
-
+  font-size: 16px;
   color: white;
-
   height: 30px;
+  overflow: hidden;
+
   background-color: rgb(149, 165, 166);
 
 }
 
-#login_nav a {
-  text-decoration: none;
+#login_nav li:nth-child(2) {
+  background-color: rgb(236, 240, 241);
 }
 
+#login_nav a {
+  text-decoration: none;
+  font-size: 24px;
+}
 
+#login_nav i {
+  font-size: 30px;
+}
 #topbar ul{
 position: fixed;
 right: 0;
-width: 160px;
+width: 260px;
 
 font-color: white;
 }
@@ -409,7 +417,7 @@ button#bundle_me, span#bundle_name {
 #topbar {
   background-image:url('lightpaperfibers.png');
   color:#ecf0f1;
-  line-height: 60px;
+
   height:60px;
 
   padding:0;
