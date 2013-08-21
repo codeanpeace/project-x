@@ -1,12 +1,10 @@
 body {
   background-color: #ebede0;
+  font-family: sans-serif;
 
 }
 
-#bundle_name, #bundle_description {
-  font-style: italic;
-  opacity: 0.6;
-}
+
 
 #bundle_description {
   margin-left: 30px;
@@ -191,11 +189,12 @@ padding-top: 15px;
 #bundle_stage form{
   padding-top: 20px;
   text-align:center;
-  margin-bottom: 20px;
+
 }
 
 #bundle_stage {
 padding-top: 30px;
+
 }
 .bundle_stage_resource{
     width: 150px;
@@ -205,7 +204,7 @@ padding-top: 30px;
 }
 #home_link a {
   text-decoration: none;
-  color: white;
+  color: #27ae60;
   font-size: 25px;
   float: left;
 }
@@ -213,7 +212,7 @@ padding-top: 30px;
 h3 {
 font-size: 24px;
 color: white;
-background-color: #90bab6;
+
 min-height: 40px;
 padding: 10px;
 }
@@ -282,7 +281,10 @@ padding: 10px;
 .resource_tiles {
   width: 100%;
   margin: auto;
-  background-image:url('light_wool.png');
+  padding-top: 400px;
+  /*background-image:url('pool_table.png');*/
+  background-image:url('lightpaperfibers.png');
+  background-color: #27ae60;
   text-align: center;
 
 }
@@ -302,7 +304,7 @@ padding: 10px;
   -webkit-box-shadow: 12px  10px 0 rgba(0,0,0,.1);
      -moz-box-shadow: 12px  10px 0 rgba(0,0,0,.1);
           box-shadow: 12px  10px 0 rgba(0,0,0,.1);
-  background-color: rgb(144, 186, 182);
+  background-color: #ecf0f1;
   text-align: center;
 }
 
@@ -365,30 +367,40 @@ button.add_to_favorite {
 button.add_to_favorite:before {
   content:'*';
 }
-button#bundle_me {
-  display:inline-block;
-  background-color:#ebede0;
-  border: 0px;
+button#bundle_me, button#bundlename {
+
+  width: 160px;
+  height: 40px;
   font-size: 16px;
-  padding: 0px;
+
+
+}
+
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 360px;
+  font-size: 32px;
+  letter-spacing: 3px;
+  text-align: center;
+
 
 }
 
 
-
 #topbar {
-  background-color:#2c3e50;
-  color:#000000;
+  background-image:url('lightpaperfibers.png');
+  color:#ecf0f1;
 
-  height:50px;
-  line-height:50px;
-  padding:0 20px;
+  height:60px;
+
+  padding:0;
   position:fixed;
   top:0;
   width:100%;
   margin:0;
-  margin-bottom: 20px;
-  z-index:10;
+  z-index:100;
 
 }
 
@@ -480,6 +492,13 @@ button#bundle_me {
 }
 
 #bundle_stage {
-  background-color: #2c3e50;
-  background-image:url('purty_wood.png');
+  background-color: #bdc3c7;
+  position: relative;
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  /*background-image:url('purty_wood.png');*/
+  background-image:url('binding_dark.png');
+
 }

@@ -20,9 +20,12 @@
     <span id = "bundle_description"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
     <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
     <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
-    </br>
-    </br>
-    <%= submit_tag "Bundle Me!", :id => "bundle_me" %>
+    <button id ="bundlename" class = "midnight-blue-flat-button">Bundle Name</button>
+    <%= button_tag(type: 'submit', :id => "bundle_me", :class => "emerald-flat-button") do %>
+     <i class="icon-ok icon-archive"></i> Bundle
+    <% end %>
+
+
   <% end %>
 
   <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->

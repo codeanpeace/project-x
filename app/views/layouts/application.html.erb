@@ -11,7 +11,7 @@
   	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
@@ -25,7 +25,10 @@
 
 
     <div id="topbar">
-     <p id = "home_link"><%= link_to "Common Core Bundler", root_url %> </p>
+      <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
+       <i class="icon-shield"></i> CoreQuest
+      <% end %>
+
       <ul id="login_nav">
         <% if current_user %>
           <li> Logged in as <%= link_to current_user.username, user_url(current_user.id) %> </li>
