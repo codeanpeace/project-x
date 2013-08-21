@@ -3,13 +3,6 @@
 <% end %>
 
 <div id="bundle_stage">
-  <div id ="namedesc">
-  <%= form_tag update_bundle_path(@bundle.id) do %>
-    <button id = "bundle_name" class = "pumpkin-flat-button"><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </button>
-    <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
-    <button id = "bundle_description" class = "green-sea-flat-button"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </button>
-    <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
-</div>
 
 
     <div id="to_be_bundled_text">Resources To Be Bundled</div>
@@ -24,12 +17,20 @@
   </div>
   </div>
 <div id="bundlemenu">
+    <div id ="namedesc">
+      <%= form_tag update_bundle_path(@bundle.id) do %>
+        <span id = "bundle_name" class = "sun-flower-button"><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </span>
+        <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
+        <span id = "bundle_description"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
+        <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
+        <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
 
     <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
     <%= button_tag(type: 'submit', :id => "bundle_me", :class => "sun-flower-button") do %>
      <i class="icon-archive"></i> Bundle
     <% end %>
     <% end %>
+    </div>
 
 
   <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->

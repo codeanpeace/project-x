@@ -61,7 +61,7 @@ padding-right: 200px;
 #user_profile_div {
   border: solid 1px;
   border-radius: 5px;
- width: 300px;
+   width: 300px;
   height: 500px;
   margin: auto;
 }
@@ -71,13 +71,19 @@ padding-right: 200px;
 }
 
 #login_nav {
-  float: right;
+
+  margin: 0;
+  padding: 0;
 }
 
 #login_nav li {
   list-style: none;
   float: left;
-  margin-left: 5px;
+  background-color: rgb(226, 182, 7);
+  width: 120px;
+  line-height: 25px;
+  height: 60px;
+  font-size: 14px;
 }
 
 
@@ -367,7 +373,7 @@ button.add_to_favorite {
 button.add_to_favorite:before {
   content:'*';
 }
-button#bundle_me, button#bundlename {
+button#bundle_me, span#bundle_name {
 
   width: 160px;
   height: 40px;
@@ -375,6 +381,8 @@ button#bundle_me, button#bundlename {
 
 
 }
+
+
 
 #root {
   position: absolute;
@@ -384,6 +392,7 @@ button#bundle_me, button#bundlename {
   font-size: 32px;
   letter-spacing: 3px;
   text-align: center;
+  box-shadow: inset 2px 2px rgb(226, 182, 7);
 
 
 }
@@ -392,7 +401,7 @@ button#bundle_me, button#bundlename {
 #topbar {
   background-image:url('lightpaperfibers.png');
   color:#ecf0f1;
-
+  line-height: 60px;
   height:60px;
 
   padding:0;
@@ -501,7 +510,8 @@ button#bundle_me, button#bundlename {
   height: 250px;
   /*background-image:url('purty_wood.png');*/
   background-image:url('binding_dark.png');
-  box-shadow: inset 0 -2px rgb(226, 182, 7);
+  box-shadow: inset 2px -2px rgb(226, 182, 7);
+
 
 }
 
