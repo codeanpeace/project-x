@@ -189,13 +189,12 @@ padding-top: 15px;
 }
 
 #bundle_stage form{
-  padding-top: 20px;
-  text-align:center;
+
 
 }
 
 #bundle_stage {
-padding-top: 30px;
+padding-top: 10px;
 
 }
 .bundle_stage_resource{
@@ -502,6 +501,7 @@ button#bundle_me, button#bundlename {
   height: 250px;
   /*background-image:url('purty_wood.png');*/
   background-image:url('binding_dark.png');
+  box-shadow: inset 0 -2px rgb(226, 182, 7);
 
 }
 
@@ -511,13 +511,31 @@ button#bundle_me, button#bundlename {
   z-index: 300;
   margin-top: 250px;
 
+
+
+
 }
 
-button#bundlename, button#bundledescription {
+#namedesc{
 
-  width: 260px;
-  height: 40px;
+  top: 60px;
+  height: 30px;
+
+  margin-left: 340px;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+#namedesc a{
+  color: white;
+}
+button#bundle_name, button#bundle_description {
+
+  width: 300px;
   font-size: 16px;
+  height: 35px;
+  margin-right: 0px;
+  padding-right: 0px;
 
 
 }
