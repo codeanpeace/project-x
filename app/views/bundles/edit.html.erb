@@ -51,11 +51,13 @@
 
 
 
-                  <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
 
-                <img class = "<%= resource.kind %>" src="/images/<%= resource.kind %>.svg" alt >
-                <button class="add_to_bundle"><i class="icon-star-empty"></i></button>
-                <button class="add_to_favorite">add to favorites</button>
+
+                <i class="icon-edit"></i>
+                <hr>
+                <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
+                <button class="add_to_bundle" target="blank"><i class="icon-plus"></i></button>
+                <button class="add_to_favorite"><i class="icon-star"></i></button>
               </div>
             </li>
           <% end %>
