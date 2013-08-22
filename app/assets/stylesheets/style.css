@@ -255,10 +255,12 @@ padding-top: 10px;
 
 h3 {
 font-size: 24px;
-color: white;
+color: black;
 font-family: sans-serif;
 min-height: 40px;
-padding: 10px;
+padding-top: 20px;
+
+text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85)
 }
 
 #container {
@@ -357,7 +359,7 @@ padding: 10px;
 
 
 hr { display: block; height: 2px;
-    border: 0; border-top: 2px solid #ebede0;
+    border: 0; border-top: 2px solid rgba(133, 149, 150, 0.8);
     margin: 1em 0; padding: 0; }
 .isotope-item:hover{
   margin: 10px;
@@ -590,7 +592,7 @@ line-height: 25px;
   z-index: 300;
   margin-top: 250px;
   background-image:url('binding_dark.png');
-  box-shadow: inset 0px -2px rgb(226, 182, 7);
+
 
 
 
@@ -651,7 +653,7 @@ button#bundle_name, button#bundle_description {
   height: 35px;
   margin-right: 0px;
   padding-right: 0px;
-  border: 1px solid red;
+
 
 
 }
@@ -694,7 +696,7 @@ button#bundle_name, button#bundle_description {
 
 .standard_section {
   margin: 0 auto;
-  border: 1px solid red;
+
   padding-left: 5px;
   padding-right: 5px;
 
