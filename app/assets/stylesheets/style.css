@@ -256,7 +256,7 @@ padding-top: 10px;
 h3 {
 font-size: 24px;
 color: white;
-
+font-family: sans-serif;
 min-height: 40px;
 padding: 10px;
 }
@@ -310,7 +310,7 @@ padding: 10px;
 .tbb_resource{
   height: 100px;
   width: 100px;
-  background-color:#ebede0;
+  background-color:red;
   position: relative;
   -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
@@ -332,9 +332,12 @@ padding: 10px;
 
 }
 
-#resource_tile_list ul{
+.resource_tile_list {
   background-color: #ebede0;
   text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  border: 1px solid black;
 }
 
 .resource {
@@ -347,8 +350,9 @@ padding: 10px;
   -webkit-box-shadow: 12px  10px 0 rgba(0,0,0,.1);
      -moz-box-shadow: 12px  10px 0 rgba(0,0,0,.1);
           box-shadow: 12px  10px 0 rgba(0,0,0,.1);
-  background-color: #ecf0f1;
+
   text-align: center;
+  background-image:url('binding_dark.png');
 }
 
 
@@ -415,8 +419,8 @@ button#bundle_me {
 
 width: 300px;
 position: fixed;
-right: 0;
-height: 40px;
+right: 10px;
+height: 30px;
 
 line-height: 25px;
 
@@ -535,7 +539,8 @@ line-height: 25px;
 
 #show_tiles .resource {
   width: 500px;
-  height: 500px
+  height: 500px;
+  border: 1px solid green;
 }
 
 #show_tiles .resource img {
@@ -550,6 +555,18 @@ line-height: 25px;
   right:0px;
   left: 100px;
   top: 40px;
+}
+.container {
+  margin: 0 auto;
+  /*padding-left: 250px;
+  padding-top: 0px;
+  padding-right: 0px;
+  right: 0;*/
+
+
+
+  height: 480px;
+  width:90%;
 }
 
 #bundle_stage {
@@ -573,6 +590,7 @@ line-height: 25px;
   z-index: 300;
   margin-top: 250px;
   background-image:url('binding_dark.png');
+  box-shadow: inset 0px -2px rgb(226, 182, 7);
 
 
 
@@ -590,14 +608,37 @@ line-height: 25px;
 
 #namedesc i {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 #namedesc form {
   padding: 10px;
-  margin: 10px auto;
+  padding-bottom: 0px;
+  margin: 0px auto;
 
 
+}
+
+
+#namedesc form input {
+
+
+
+      border: 0px;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0 0 0px 0;
+     background: rgba(255,255,255,0.6);
+
+}
+
+
+#namedesc form input:focus,textarea:focus,select:focus{
+ border:1px solid #fafafa;
+ -webkit-box-shadow:0 0 6px #007eff;
+ -moz-box-shadow:0 0 5px #007eff;
+ box-shadow:0 0 5px rgb(241, 196, 15);
+ height: 60px;
 }
 
 #namedesc a{
@@ -610,20 +651,27 @@ button#bundle_name, button#bundle_description {
   height: 35px;
   margin-right: 0px;
   padding-right: 0px;
+  border: 1px solid red;
 
 
 }
 #bundle_name_field, #bundle_description_field{
+  padding-left: 40px;
+  text-align: center;
+
+  width: 400px;
 
 }
 #bundle_name, #bundle_description{
   padding-left: 40px;
-  padding-right: 80px;
+  padding-right: 100px;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   width: 400px;
   color: white;
-  font-size: 18px;
+  height: 60px;
+  font-size: 16px;
+  opacity: 0.7;
 }
 
 
@@ -643,3 +691,12 @@ button#bundle_name, button#bundle_description {
 #logout_link {
   padding-top: 10px;
 }
+
+.standard_section {
+  margin: 0 auto;
+  border: 1px solid red;
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+
