@@ -52,10 +52,14 @@
 
 
 
-
+                <% if resource.kind == "arc" %>
                 <i class="icon-edit"></i>
-                <hr>
-                <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
+                <% else %>
+                <i class ="icon-gamepad"></i>
+                <% end %>
+
+                <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><hr><%= resource.source %></div>
+
                 <button class="add_to_bundle" target="blank"><i class="icon-plus"></i></button>
                 <button class="add_to_favorite"><i class="icon-star"></i></button>
               </div>

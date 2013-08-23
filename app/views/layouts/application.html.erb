@@ -12,26 +12,26 @@
 
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <title><%= content_for?(:title) ? yield(:title) : "CoreQuest" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag    "/smoothDivScroll.css" %>
     <%= javascript_include_tag "application" %>
-     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-
-
     <div id="topbar">
       <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
-       <i class="icon-shield"></i> CoreQuest
+        <i class="icon-shield"></i> CoreQuest
       <% end %>
 
       <ul id="login_nav">
         <% if current_user %>
-          <li> Logged in as <i class="icon-user"></i> <%= link_to current_user.username, user_url(current_user.id) %> </li>
+          <li>
+            Logged in as <i class="icon-user"></i> <%= link_to current_user.username, user_url(current_user.id) %> </li>
          <li id = "logout_link"><i class="icon-signout"></i> <%= link_to "Log out", logout_path %></li>
         <% else %>
           <li><%= link_to "Sign up", signup_path %></li>
@@ -45,6 +45,9 @@
       <%= yield %>
     </div>
 
+
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <%= content_for :extra_javascript %>
   </body>
+
 </html>

@@ -142,7 +142,7 @@ font-color: white;
 
 .stuff {
   text-align: center;
-  padding-top: 20px;
+  padding: 30px;
 }
 
 #all-encompassing-div{
@@ -288,11 +288,24 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85)
 
 .icon-edit{
   color: white;
-  font-size: 45px;
+  font-size: 55px;
+  text-align: center;
+  line-height: 50px;
+  /*opacity: 0.4;*/
+
+}
+
+.icon-gamepad {
+  color: white;
+  font-size: 55px;
   text-align: center;
   line-height: 50px;
 
 }
+
+.stuff hr { display: block; height: 1px;
+    border: 0; border-top: 1px solid rgba(133, 149, 150, 0.4);
+    margin: 10px 0; padding: 0; }
 
 #user_info {
   z-index: 12;
@@ -368,11 +381,12 @@ hr { display: block; height: 2px;
     border: 0; border-top: 2px solid rgba(133, 149, 150, 0.8);
     margin: 1em 0; padding: 0; }
 .isotope-item:hover{
-  margin: 10px;
+
 }
 .resource_name{
   padding-top: 10px;
-  font-color: #ebede0;
+  color: white;
+  font-size: 12px;
 
 
 }
