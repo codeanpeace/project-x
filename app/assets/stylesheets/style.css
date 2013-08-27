@@ -69,6 +69,12 @@ color: black;
   text-align: center;
 }
 
+#subject form {
+  border: 2px solid white;
+  width: 50%;
+
+  float: left;
+}
 #user_profile_header {
   font-size: 30px;
 }
@@ -815,20 +821,25 @@ text-align: center;
 }
 
 #subject {
+width: 100%;
+margin: auto;
+
+overflow: hidden;
 
 
 }
 
 #subject input {
-  margin-bottom: 20px;
-  width: 40%;
+  text-align: center;
+
 }
 
 #action {
 
 background-image:url('lightpaperfibers.png');
 margin:0 auto;
-border: 2px solid green;
+
+height: 800px;
 }
 
 #pull {
