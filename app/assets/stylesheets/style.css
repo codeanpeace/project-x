@@ -168,11 +168,11 @@ font-color: white;
   padding: 30px;
 }
 
-#all-encompassing-div{
+/*#all-encompassing-div{
 
   float: left;
   width: 100%;
-}
+}*/
 .newstuff {
   position:relative;
   float:left;
@@ -766,7 +766,7 @@ button#bundle_name, button#bundle_description {
 
 #hero-unit {
 
-  width: 100%;
+ /* width: 100%;*/
   height: 425px;
   background: url('left.jpg');
   -webkit-background-size: cover;
@@ -862,4 +862,8 @@ margin:0 auto;
   background-image:url('binding_dark.png');
   color: white;
 
+}
+
+.bot-bor-solid {
+  border-bottom: 2px solid rgb(241, 196, 15)
 }

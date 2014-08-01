@@ -23,26 +23,35 @@
   </head>
 
   <body>
-    <div id="topbar">
-      <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
-        <i class="icon-shield"></i> CoreQuest
-      <% end %>
+    <div class="container-fluid">
+      <div class="row bot-bor-solid">
+        <div class="col-xs-4">
+          <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
+            <i class="icon-shield"></i> CoreQuest
+          <% end %>
+        </div>
+        <div class="col-xs-4">
 
-      <ul id="login_nav">
-        <% if current_user %>
-          <li>
-            Logged in as <i class="icon-user"></i> <%= link_to current_user.username, user_url(current_user.id) %> </li>
-         <li id = "logout_link"><i class="icon-signout"></i> <%= link_to "Log out", logout_path %></li>
-        <% else %>
-          <li><%= link_to "Sign up", signup_path %></li>
-          <li> | </li>
-          <li id = "login_link"><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </div>
+        </div>
+        <div class="col-xs-4">
+          <ul id="login_nav">
+            <% if current_user %>
+              <li>
+                Logged in as <i class="icon-user"></i> <%= link_to current_user.username, user_url(current_user.id) %> </li>
+             <li id = "logout_link"><i class="icon-signout"></i> <%= link_to "Log out", logout_path %></li>
+            <% else %>
+              <li><%= link_to "Sign up", signup_path %></li>
+              <li id = "login_link"><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
 
-    <div id = "all-encompassing-div">
-      <%= yield %>
+
+
+      <div id = "all-encompassing-div">
+        <%= yield %>
+      </div>
     </div>
 
 
