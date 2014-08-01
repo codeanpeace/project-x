@@ -47,7 +47,7 @@ Projectx::Application.routes.draw do
   post "create_bundle/:standards" => "bundles#create", :as => "create_bundle"
 
 
-  resources :bundles, except: [:new, :create, :update]
+  resources :bundles, :except => [:new, :create, :update]
 
 
   #resources :resources
