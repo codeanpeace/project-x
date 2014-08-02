@@ -5,35 +5,45 @@
 
 
 <div id="bundlemenu">
-    <div id ="namedesc">
-      <%= form_tag update_bundle_path(@bundle.id) do %>
-        <span id = "bundle_name">
-          <i class="icon-pencil"></i>
-          <% if @bundle.title %>
-            <%= @bundle.title %>
-          <% else %>
-            Bundle Name
-          <% end %>
-        </span>
-        <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
-        <span id = "bundle_description"><i class="icon-edit"></i> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
-        <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
-        <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
-
-    <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
-    <div class="pull-right mar-top-10 mar-right-20">
-      <%= button_tag(type: 'submit', :id => "bundle_me", :class => "sun-flower-button") do %>
-      <i class="icon-archive"></i> Bundle
-      <% end %>
-    </div>
+  <div id ="namedesc">
+    <%= form_tag update_bundle_path(@bundle.id) do %>
+      <span id = "bundle_name">
+        <i class="icon-pencil"></i>
+        <% if @bundle.title %>
+          <%= @bundle.title %>
+        <% else %>
+          Bundle Name
+        <% end %>
+      </span>
+      <span id = "bundle_name_field" class = "hidden">
+        <%= text_field_tag 'bundlename' %>
+      </span>
+      <span id = "bundle_description">
+        <i class="icon-edit"></i>
+        <% if @bundle.description %>
+          <%= @bundle.description %>
+        <% else %>
+          Bundle Description
+        <% end %>
+      </span>
+      <span id = "bundle_description_field" class = "hidden" >
+        <%= text_field_tag 'bundlescription' %>
+      </span>
+      <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
+      <div class="pull-right mar-top-10 mar-right-20">
+        <%= button_tag(type: 'submit', :id => "bundle_me", :class => "sun-flower-button") do %>
+          <i class="icon-archive"></i> Bundle
+        <% end %>
+      </div>
     <% end %>
-    </div>
+  </div>
+</div>
 
 
   <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->
 
 
-</div>
+
 
 <div id="bundle_stage">
 
