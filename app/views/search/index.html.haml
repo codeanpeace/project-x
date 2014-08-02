@@ -1,16 +1,18 @@
-%div#main-container
+%div
   %div.row
     = flash[:notice]
 
-  %div#hero-unit
-    %div#hero-unit-text.animated.fadeInRight
+  %div.row
 
-      %i.icon-shield.animated.bounceIn
-      %h4 Welcome!
-      %p CoreQuest is an EdTech web app that facilitates the planning and teaching process of a Common Core based curriculum. CoreQuest enables teachers to search for and distribute Common Core specific online learning materials by enabling instructors to create "bundles" of resources which can then be shared with and utilized by their students.
-      %div#ui-widget
-        %label{:for => "tags"} Search by Standard:
-        %input{:id => "tags", :type => "search", :results => 5}
+    %div#hero-unit
+      %div#hero-unit-text.animated.fadeInRight
+
+        %i.icon-shield.animated.bounceIn.white
+        %h4.white Welcome!
+        %p CoreQuest is an EdTech web app that facilitates the planning and teaching process of a Common Core based curriculum. CoreQuest enables teachers to search for and distribute Common Core specific online learning materials by enabling instructors to create "bundles" of resources which can then be shared with and utilized by their students.
+        %div#ui-widget
+          %label.mar-bot-10{:for => "tags"} Search by Standard:
+          %input{:id => "tags", :type => "search", :results => 5}
 
     /#explore Explore CoreQuest
   #action
@@ -25,12 +27,12 @@
 
     /     %span
 
-
-    #subject
-      - @subject_list.each do |subject|
-        = form_tag search_grade_path, :remote => true do
-          = hidden_field_tag :subject, subject
-          = submit_tag subject, :class => "sun-flower-button"
+    %div.row
+      #subject
+        - @subject_list.each do |subject|
+          = form_tag search_grade_path, :remote => true do
+            = hidden_field_tag :subject, subject
+            = submit_tag subject, :class => "sun-flower-button"
 
     #grade
 
