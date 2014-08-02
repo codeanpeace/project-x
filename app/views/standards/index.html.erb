@@ -32,8 +32,6 @@
 
 
 
-<!-- <label for="name">Stuent?</label>
-<input id="name" type="checkbox" name="student[name]">
 
 
 
@@ -53,75 +51,3 @@
 
 
 
-
-
-
-....
-
-<select name="make">
-  <option value="1">Ford - NEW</option>
-  <option value="2">Chevy</option>
-</select>
-
-....
-
-
-
-rails
-
-foo = params[:make]
-# 1
-
-
-
-....
-
-<select name="make">
-  <option value="Ford">Ford</option>
-  <option value="Chevy">Chevy</option>
-</select>
-
-....
-
-
-
-rails
-
-foo = params[:make]
-# "Ford"
-
-
-
-....
-
-<select name="make">
-  <option>Ford</option>
-  <option>Chevy</option>
-</select>
-
-....
-
-
-
-rails
-
-foo = params[:make]
-# "Ford"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- -->
