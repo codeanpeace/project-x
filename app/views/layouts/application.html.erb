@@ -11,37 +11,69 @@
   	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "CoreQuest" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag    "/smoothDivScroll.css" %>
     <%= javascript_include_tag "application" %>
-     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <div class="container-fluid">
+      <div class="row bot-bor-solid">
+        <div class="col-xs-4">
+          <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
+            <i class="icon-shield"></i> CoreQuest
+          <% end %>
+        </div>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <div class="row">
+          <!-- <ul id="login_nav"> -->
+            <div class="col-xs-6">
+              <% if current_user %>
+                <div class="mar-top-20 gold pull-right">
+                  <i class="icon-user"></i>
+                  <%= link_to current_user.username, user_url(current_user.id) %>
+                </div>
+                <!-- </li> -->
+               <!-- <li id = "logout_link"> -->
+              <% else %>
+                <div class="mar-top-20 gold pull-right">
+                  <%= link_to "Sign up", signup_path %>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-xs-6">
+              <% if current_user %>
+                <div class="mar-top-20 gold">
+                  <i class="icon-signout"></i>
+                  <%= link_to "Logout", logout_path %>
+                </div>
+              <% else %>
+                <div class="mar-top-20 gold">
+                  <%= link_to "Login", login_path %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <!-- </ul> -->
+        </div>
+      </div>
 
 
-    <div id="topbar">
-     <p id = "home_link"><%= link_to "Common Core Bundler", root_url %> </p>
-      <ul id="login_nav">
-        <% if current_user %>
-          <li> Logged in as <%= link_to current_user.username, user_url(current_user.id) %> </li>
-         <li id = "logout_link"> <%= link_to "Log out", logout_path %></li>
-        <% else %>
-          <li><%= link_to "Sign up", signup_path %></li>
-          <li> | </li>
-          <li id = "login_link"><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
+      <div id = "all-encompassing-div">
+        <%= yield %>
+      </div>
     </div>
 
-    <div id = "all-encompassing-div">
-      <%= yield %>
-    </div>
 
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <%= content_for :extra_javascript %>
   </body>
+
 </html>

@@ -1,44 +1,42 @@
-/ %head
-/   %meta{:charset => "utf-8"}
-/   %meta{:name => "viewport", :content => "width=device-width"}
+%div
+  %div.row
+    = flash[:notice]
 
-/   %link{:rel => "stylesheet", :href => "/css/normalize.css"}
-/   %link{:rel => "stylesheet", :href => "/css/foundation.css"}
-/   %link{:rel => "stylesheet", :href => "/css/app.css"}
+  %div.row
 
-/   / %script{:src => "/js/vendor/custom.modernizr.js"}
+    %div#hero-unit
+      %div#hero-unit-text.animated.fadeInRight
 
+        %i.icon-shield.animated.bounceIn.white
+        %h4.white Welcome!
+        %p CoreQuest is an EdTech web app that facilitates the planning and teaching process of a Common Core based curriculum. CoreQuest enables teachers to search for and distribute Common Core specific online learning materials by enabling instructors to create "bundles" of resources which can then be shared with and utilized by their students.
+        %div#ui-widget
+          %label.mar-bot-10{:for => "tags"} Search by Standard:
+          %input{:id => "tags", :type => "search", :results => 5}
 
+    /#explore Explore CoreQuest
+  #action
 
-/ %body
-%div#main-container
-  %h1 Welcome!
-  =link_to image_tag( 'http://www.corestandards.org/images/logo.jpg'), 'http://www.corestandards.org/'
+    / %div#switch
+    /   %div.switch.styleswitch
+    /     %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
+    /     %label{:for => "z", :onclick => ""}Teacher
 
-  %div#ui-widget
-    %label{:for => "tags"} Search by Standard:
-    %br
-    %br
-    %input{:id => "tags", :type => "search", :results => 5}
-  %div#switch
-    %div.switch.small.round
-      %input{:id => "z", :name => "switch-z", :type => "radio", :checked => true}
-      %label{:for => "z", :onclick => ""}Teacher
+    /     %input{:id => "z1", :name => "switch-z", :type => "radio"}
+    /     %label{:for => "z1", :onclick => ""}Student
 
-      %input{:id => "z1", :name => "switch-z", :type => "radio"}
-      %label{:for => "z1", :onclick => ""}Student
+    /     %span
 
-      %span
+    %div.row
+      #subject
+        - @subject_list.each do |subject|
+          = form_tag search_grade_path, :remote => true do
+            = hidden_field_tag :subject, subject
+            = submit_tag subject, :class => "sun-flower-button"
 
-  #subject
-    - @subject_list.each do |subject|
-      = form_tag search_grade_path, :remote => true do
-        = hidden_field_tag :subject, subject
-        = submit_tag subject
+    #grade
 
-  #grade
-
-  #topic
+    #topic
 
 
 / %script

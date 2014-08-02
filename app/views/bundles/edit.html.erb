@@ -2,8 +2,53 @@
   <p> Create your very first bundle! </p>
 <% end %>
 
+
+
+<div id="bundlemenu">
+  <div id ="namedesc">
+    <%= form_tag update_bundle_path(@bundle.id) do %>
+      <span id = "bundle_name">
+        <i class="icon-pencil"></i>
+        <% if @bundle.title %>
+          <%= @bundle.title %>
+        <% else %>
+          Bundle Name
+        <% end %>
+      </span>
+      <span id = "bundle_name_field" class = "hidden">
+        <%= text_field_tag 'bundlename' %>
+      </span>
+      <span id = "bundle_description">
+        <i class="icon-edit"></i>
+        <% if @bundle.description %>
+          <%= @bundle.description %>
+        <% else %>
+          Bundle Description
+        <% end %>
+      </span>
+      <span id = "bundle_description_field" class = "hidden" >
+        <%= text_field_tag 'bundlescription' %>
+      </span>
+      <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
+      <div class="pull-right mar-top-10 mar-right-20">
+        <%= button_tag(type: 'submit', :id => "bundle_me", :class => "sun-flower-button") do %>
+          <i class="icon-archive"></i> Bundle
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+  <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->
+
+
+
+
 <div id="bundle_stage">
-    <div id="to_be_bundled_text">Resources To Be Bundled</div>
+
+
+    <div id="to_be_bundled_text">Please select your resources below.</div>
   <div id="makeMeScrollable">
     <% @bundle.resources.each do |resource| %>
       <div class="bundle_stage_resource" id='<%= "resource_#{resource.id}" %>'>
@@ -13,22 +58,7 @@
       </div>
     <% end %>
   </div>
-
-  <%= form_tag update_bundle_path(@bundle.id) do %>
-    <span id = "bundle_name"><% if @bundle.title %> <%= @bundle.title %> <% else %> Bundle Name <% end %> </span>
-    <span id = "bundle_name_field" class = "hidden"> <%= text_field_tag 'bundlename' %> </span>
-    <span id = "bundle_description"> <% if @bundle.description %> <%= @bundle.description %> <% else %> Bundle Description <% end %> </span>
-    <span id = "bundle_description_field" class = "hidden" > <%= text_field_tag 'bundlescription' %></span>
-    <%= hidden_field_tag :resources, nil, :id => "resources_input" %>
-    </br>
-    </br>
-    <%= submit_tag "Bundle Me!", :id => "bundle_me" %>
-  <% end %>
-
-  <!-- <button id="bundle_me" class="call-modal" onClick="location.href='#modal-text';">Click to Bundle</button> -->
-</div>
-
-
+  </div>
 
 <div class="resource_tiles">
   <% @standard_list.each do |standard| %>
@@ -43,11 +73,19 @@
 
 
 
-                  <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><br> <%= resource.source %></div>
 
-                <img class = "<%= resource.kind %>" src="/images/<%= resource.kind %>.svg" alt >
-                <button class="add_to_bundle">add to bundle</button>
-                <button class="add_to_favorite">add to favorites</button>
+                <% if resource.kind == "arc" %>
+                <i class="icon-edit"></i>
+                <% else %>
+                <i class ="icon-gamepad"></i>
+                <% end %>
+
+                <div class="resource_name"><a href="<%= resource.url %>"><%= resource.name.titleize %></a><hr><%= resource.source %></div>
+
+                <button class="add_to_bundle" target="blank"><i class="icon-plus"></i></button>
+                <button class="add_to_favorite">
+                  <i class="icon-star"></i>
+                </button>
               </div>
             </li>
           <% end %>
@@ -84,6 +122,7 @@
 
 
 <!-- Plugin initialization -->
+
 <script type="text/javascript">
   // Initialize the plugin with no custom options
   $(document).ready(function () {
