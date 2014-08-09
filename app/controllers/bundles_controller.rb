@@ -28,13 +28,16 @@ class BundlesController < ApplicationController
   # GET /bundles/new.json
   def new
     #use the self.standard_list method to get that list of standards associated w what they searched
-    @bundle = Bundle.create(:user_id => current_user.id)
-    @standard_list = Standard.standard_list(params[:subject], params[:grade], params[:topic])
-    @standard_list.each do |standard|
-      @bundle.standards << standard
+    if current_user
+      @bundle = Bundle.create(:user_id => current_user.id)
+      @standard_list = Standard.standard_list(params[:subject], params[:grade], params[:topic])
+      @standard_list.each do |standard|
+        @bundle.standards << standard
+      end
+      render :edit
+    else
+      redirect_to(root_path, :notice => 'Please signup or login.')
     end
-
-    render :edit
   end
 
   # GET /bundles/1/edit
