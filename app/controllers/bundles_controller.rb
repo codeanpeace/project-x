@@ -36,7 +36,7 @@ class BundlesController < ApplicationController
       end
       render :edit
     else
-      redirect_to(root_path, :danger => 'Please sign up or login.')
+      redirect_back_or_to root_url, :danger => "Please sign up or login."
     end
   end
 
