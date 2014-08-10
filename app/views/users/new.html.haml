@@ -8,10 +8,8 @@
     = form_for @user do |f|
       - if @user.errors.any?
         .error_messages
-          %h2 Form is invalid
-          %ul
-            - for message in @user.errors.full_messages
-              %li= message
+          - for message in @user.errors.full_messages
+            %div.row.alert.alert-danger= message
       .field
         = f.label :email
         = f.text_field :email

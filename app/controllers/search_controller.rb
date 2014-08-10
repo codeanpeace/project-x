@@ -9,6 +9,7 @@ class SearchController < ApplicationController
       @availableTags << standard.standard
     end
     @subject_list = Standard.subject_list
+
     # @standards = Standard.select(:subject)
     # @subject_list = []
     # @standards.each do |standard|
@@ -24,8 +25,14 @@ class SearchController < ApplicationController
   end
 
   def grade
+    # if params[:subject] == "English"
+    #     # flash[:danger] = "Sorry, we currently only have Math resources. Please check back soon for English resources!"
+    #     flash[:danger] = "Sorry, we currently only have Math resources. Please check back soon for English resources!"
+    #     redirect_to :back
+    # else
     @grade_list = Standard.grade_list(params[:subject])
     @subject = params[:subject]
+    # end
     # @standards_subject = Standard.where(:subject => params[:subject])
     # @subject = params[:subject]
     # @grade_list = []
