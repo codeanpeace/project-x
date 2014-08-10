@@ -1,31 +1,36 @@
-%h1 Sign Up
+%div.row
+  %div.col-xs-12
+    %h1.mar-top-bot-20.pull-left
+      Sign Up
 
-= form_for @user do |f|
-  - if @user.errors.any?
-    .error_messages
-      %h2 Form is invalid
-      %ul
-        - for message in @user.errors.full_messages
-          %li= message
-  .field
-    = f.label :email
-    = f.text_field :email
-    %div.mar-bot-10
+%div.row
+  %div.col-xs-12
+    = form_for @user do |f|
+      - if @user.errors.any?
+        .error_messages
+          %h2 Form is invalid
+          %ul
+            - for message in @user.errors.full_messages
+              %li= message
+      .field
+        = f.label :email
+        = f.text_field :email
+        %div.mar-bot-10
 
-  .field
-    = f.label :username
-    = f.text_field :username
-    %div.mar-bot-10
+      .field
+        = f.label :username
+        = f.text_field :username
+        %div.mar-bot-10
 
-  .field
-    = f.label :password
-    = f.password_field :password
-    %div.mar-bot-10
+      .field
+        = f.label :password
+        = f.password_field :password
+        %div.mar-bot-10
 
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-    %div.mar-bot-10
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+        %div.mar-bot-10
 
-  .actions
-    = f.submit 'Save'
+      .actions
+        = f.submit 'Save'

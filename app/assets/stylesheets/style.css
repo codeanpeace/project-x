@@ -889,6 +889,15 @@ margin:0 auto;
   margin-top: 10px;
 }
 
+.mar-bot-none {
+  margin-bottom: 0;
+}
+
+.mar-top-bot-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .gold a {
   color: gold;
   font-size: 20px;

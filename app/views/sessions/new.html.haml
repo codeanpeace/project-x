@@ -1,20 +1,29 @@
-%h1 Log In
+- if not flash.empty?
+  - flash.each do |key, value|
+    %div.row.alert.mar-bot-none{:class => "alert-#{key}"}= value
 
-= form_tag sessions_path do
-  .field
-    = label_tag :username
-    = text_field_tag :username
-    %div.mar-bot-10
-  .field
-    = label_tag :password
-    = password_field_tag :password
-    %div.mar-bot-10
-  .field
-    = check_box_tag :remember_me, 1, params[:remember_me]
-    = label_tag :remember_me
-    %div.mar-bot-20
-  .actions
-    = submit_tag "Login"
+%div.row
+  %div.col-xs-12
+    %h1.mar-top-bot-20.pull-left
+      Login
+
+%div.row
+  %div.col-xs-12
+    = form_tag sessions_path do
+      .field
+        = label_tag :username
+        = text_field_tag :username
+        %div.mar-bot-10
+      .field
+        = label_tag :password
+        = password_field_tag :password
+        %div.mar-bot-10
+      .field
+        = check_box_tag :remember_me, 1, params[:remember_me]
+        = label_tag :remember_me
+        %div.mar-bot-20
+      .actions
+        = submit_tag "Login"
 
 / %h3 Forgot Password?
 / = render 'forgot_password_form'

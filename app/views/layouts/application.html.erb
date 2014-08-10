@@ -26,9 +26,7 @@
     <div class="container-fluid">
       <div class="row bot-bor-solid">
         <div class="col-xs-4">
-          <%= button_tag(:class => "sun-flower-button", :id =>"root") do %>
-            <i class="icon-shield"></i> CoreQuest
-          <% end %>
+          <%= link_to '<button type="button" class="sun-flower-button" id="root"><i class="icon-shield"></i> CoreQuest</button>'.html_safe, root_path %>
         </div>
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
